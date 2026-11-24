@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MŪLA (मूल) v3.1 — The 7-Root Global Framework for High-ROI Farming in India</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    .nav-pill[aria-selected="true"] {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      border-color: var(--primary);
+    }
+    .nav-pill[aria-selected="false"] {
+      background-color: var(--card);
+      color: var(--muted-foreground);
+      border-color: var(--border);
+    }
+    .nav-pill[aria-selected="false"]:hover {
+      color: var(--foreground);
+      border-color: var(--primary);
+    }
+    .chip-on {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      border-color: var(--primary);
+    }
+    .chip-off {
+      background-color: var(--content);
+      color: var(--muted-foreground);
+      border-color: var(--border);
+    }
+    .chip-off:hover {
+      color: var(--foreground);
+      border-color: var(--primary);
+    }
+    .node-group { cursor: pointer; transition: opacity 160ms ease; outline: none; }
+    .node-group:hover .node-ring, .node-group:focus .node-ring { stroke-width: 3.5; }
+    .fade-in { animation: fadeIn 180ms ease-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+    details summary::-webkit-details-marker { display: none; }
+    @media print {
+      .no-print { display: none !important; }
+      body {
+        --background: #ffffff;
+        --card: #ffffff;
+        --content: #f7f7f7;
+        --foreground: #111111;
+        --muted-foreground: #444444;
+        --border: #cccccc;
+        --card-border: #dddddd;
+        background: #ffffff !important;
+        color: #111111 !important;
+      }
+      .print-card { border: 1px solid #999 !important; box-shadow: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-[var(--background)] text-[var(--foreground)] antialiased m-0 p-0">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 space-y-6">
+
+    <!-- Minimalist Hero Header -->
+    <header class="no-print bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 sm:p-6 space-y-5">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
+        <div class="space-y-2 max-w-3xl">
+          <div class="flex flex-wrap items-center gap-2 text-xs">
+            <span class="px-2.5 py-1 rounded-full bg-[var(--secondary)] text-[var(--secondary-foreground)] border border-[var(--border)] font-semibold">
+              MŪLA (मूल) v3.1 · Complete Global 99.9% Cut
+            </span>
+            <span class="px-2.5 py-1 rounded-full bg-[var(--content)] text-[var(--muted-foreground)] border border-[var(--border)]">
+              6 Continents · 30 Global-to-India Proofs · Tenant, Dairy &amp; Labour Honest
+            </span>
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--foreground)]">
+            One Connected Root. Seven Laws. Zero Wastage.
+          </h1>
+          <p class="text-sm text-[var(--muted-foreground)] leading-relaxed">
+            Distilled from 5,000 years of humanity's highest-ROI farming wisdom—Sahel <em>Zaï</em> &amp; <em>FMNR</em>, <em>Olla/Matka</em> clay pots, East African <em>Push-Pull</em>, Bangladesh <em>UDP</em>, ICRISAT <em>Seed Priming</em> &amp; <em>Microdosing</em>, <em>Rag-Doll Seed Tests</em>, IRRI <em>Leaf Color Charts</em>, Israeli <em>Drip</em> &amp; <em>Solarization</em>, <em>Stale Seedbeds</em>, Amazonian <em>Terra Preta</em>, Brazilian <em>No-Till</em>, Chinese <em>Low-Tunnels</em>, Taiwan <em>Grafting</em>, Purdue <em>PICS Bags</em>, Japanese <em>Aigamo</em>, Korean <em>IMO</em>, Madagascar <em>SRI</em>, and India's <em>Hiware Bazar</em>, <em>ZECC</em>, <em>NDDB Dairy</em>, <em>Bees</em>, <em>APCNF</em>, <em>Zabo</em> &amp; <em>Sahyadri</em>. Pick your Indian ecology once—every tab adapts automatically.
+          </p>
+        </div>
+
+        <!-- Global Synced Ecology Picker + Governing Law -->
+        <div class="p-4 rounded-xl bg-[var(--content)] border border-[var(--card-border)] shrink-0 lg:w-80 space-y-2.5">
+          <div class="text-xs font-bold uppercase tracking-wider text-[var(--primary)]">Your Indian Farm Ecology (Syncs All Views)</div>
+          <div id="global-eco-bar" class="grid grid-cols-3 gap-1.5">
+            <button data-eco="dryland" class="py-1.5 px-2 rounded-lg border text-xs font-semibold cursor-pointer transition chip-on">Dryland</button>
+            <button data-eco="plains" class="py-1.5 px-2 rounded-lg border text-xs font-semibold cursor-pointer transition chip-off">Plains</button>
+            <button data-eco="wet_hill" class="py-1.5 px-2 rounded-lg border text-xs font-semibold cursor-pointer transition chip-off">Wet / Hills</button>
+          </div>
+          <div class="text-xs text-[var(--muted-foreground)] leading-snug">
+            <strong class="text-[var(--foreground)]">One Law:</strong> Stop Leaking → Capture → Circulate → Hold &amp; Own Value.
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Clean Minimalist Navigation Tabs -->
+      <nav aria-label="Primary Views" class="pt-4 border-t border-[var(--card-border)] flex flex-wrap gap-2">
+        <button data-view="roots" aria-selected="true" class="nav-pill px-4 py-2 rounded-xl border text-xs sm:text-sm font-semibold transition cursor-pointer flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
+          1. The 7 Enmeshed Roots
+        </button>
+        <button data-view="start" aria-selected="false" class="nav-pill px-4 py-2 rounded-xl border text-xs sm:text-sm font-semibold transition cursor-pointer flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          2. Start Where You Are + 25% Profit Lab
+        </button>
+        <button data-view="atlas" aria-selected="false" class="nav-pill px-4 py-2 rounded-xl border text-xs sm:text-sm font-semibold transition cursor-pointer flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          3. Global-to-India Proof Atlas (30)
+        </button>
+        <button data-view="card" aria-selected="false" class="nav-pill px-4 py-2 rounded-xl border text-xs sm:text-sm font-semibold transition cursor-pointer flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+          4. Shareable Field Card &amp; WhatsApp
+        </button>
+      </nav>
+    </header>
+
+    <!-- =================================================================== -->
+    <!-- VIEW 1: THE 7 ENMESHED ROOTS                                        -->
+    <!-- =================================================================== -->
+    <section id="view-roots" class="view-panel space-y-5 fade-in">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+
+        <!-- Left: Interactive Enmeshed Heptagon Web -->
+        <div class="lg:col-span-5 bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 space-y-3">
+          <div class="flex items-center justify-between">
+            <h2 class="text-sm font-bold text-[var(--foreground)]">The Enmeshed Web (Tap Any Root)</h2>
+            <span class="text-xs text-[var(--muted-foreground)]">Arrows = Cause → Effect</span>
+          </div>
+          <div id="root-wheel" class="w-full"></div>
+          <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-[var(--muted-foreground)] pt-0.5">
+            <span class="flex items-center gap-1.5"><span class="w-5 h-0.5 inline-block bg-[var(--primary)]"></span> Solid Arrow: Unlocks</span>
+            <span class="flex items-center gap-1.5"><span class="w-5 h-0.5 inline-block border-t-2 border-dashed border-[var(--muted-foreground)]"></span> Dashed: Fed By</span>
+          </div>
+          <div id="root-link-summary" class="p-3.5 rounded-xl bg-[var(--content)] border border-[var(--card-border)] text-xs space-y-1.5"></div>
+          <div id="root-pills" class="grid grid-cols-7 gap-1.5 pt-1"></div>
+        </div>
+
+        <!-- Right: Ecology-Synced Plain-First Root Card -->
+        <div id="root-detail" class="lg:col-span-7 bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 sm:p-6 space-y-5"></div>
+      </div>
+
+      <!-- ₹0 Bare-Hand Field Diagnostics Strip -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <h3 class="text-sm font-bold text-[var(--foreground)]">3 Bare-Hand Field Tests Every Farmer Can Run Tomorrow for ₹0</h3>
+          <span class="text-xs text-[var(--muted-foreground)]">Never wait 6 months for a lab sheet to spot a crisis</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+          <div class="p-3.5 rounded-xl bg-[var(--content)] border border-[var(--card-border)] space-y-1">
+            <div class="font-bold text-[var(--chart-4)]">1. 4-Day Wet-Cloth Seed Test ("Rag-Doll")</div>
+            <p class="text-[var(--muted-foreground)] leading-relaxed">Roll 100 seeds in a damp cotton cloth inside a shade-kept pouch for 4 days. Count sprouts: &lt;75% means dead/weak stock—adjust seed rate or change seed BEFORE sowing!</p>
+          </div>
+          <div class="p-3.5 rounded-xl bg-[var(--content)] border border-[var(--card-border)] space-y-1">
+            <div class="font-bold text-[var(--chart-3)]">2. Rough Kitchen pH Screen (Pending Lab Card)</div>
+            <p class="text-[var(--muted-foreground)] leading-relaxed">Cup A + vinegar: <strong class="text-[var(--foreground)]">strong fizz = highly alkaline</strong> (&gt;7.8). Cup B + water + baking soda: <strong class="text-[var(--foreground)]">fizz = strongly acidic</strong> (&lt;5.5). <em>Rough screen only</em>—confirm exact lime/gypsum dose with your free Soil Health Card.</p>
+          </div>
+          <div class="p-3.5 rounded-xl bg-[var(--content)] border border-[var(--card-border)] space-y-1">
+            <div class="font-bold text-[var(--chart-2)]">3. Glass-Jar Clod Slake Test (Soil Life)</div>
+            <p class="text-[var(--muted-foreground)] leading-relaxed">Drop a dry topsoil clod into a glass of clean water. If it explodes into cloudy mud in 60 seconds, soil biology is dead (needs mulch + living roots). If it stays intact &amp; water stays clear, soil glues are alive!</p>
+          </div>
+        </div>
+        <!-- Where to Get It Free/Cheap Tomorrow in India -->
+        <div class="pt-3 border-t border-[var(--card-border)] flex flex-wrap items-center gap-2 text-xs">
+          <span class="font-bold text-[var(--primary)]">Where to Get It Free/Cheap Tomorrow:</span>
+          <span class="px-2.5 py-1 rounded-lg bg-[var(--content)] border border-[var(--card-border)] text-[var(--foreground)]">District KVK (SHC, ₹100 LCC, grafted veg, training)</span>
+          <span class="px-2.5 py-1 rounded-lg bg-[var(--content)] border border-[var(--card-border)] text-[var(--foreground)]">Govt. Vet Hospital (Free FMD/PPR/HS vaccines)</span>
+          <span class="px-2.5 py-1 rounded-lg bg-[var(--content)] border border-[var(--card-border)] text-[var(--foreground)]">IMD Meghdoot App (Free block weather)</span>
+          <span class="px-2.5 py-1 rounded-lg bg-[var(--content)] border border-[var(--card-border)] text-[var(--foreground)]">Village CHC / SMAM (Happy Seeder &amp; BBF rent)</span>
+          <span class="px-2.5 py-1 rounded-lg bg-[var(--content)] border border-[var(--card-border)] text-[var(--foreground)]">Bank KCC (4% loan) &amp; Free PGS-India</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- VIEW 2: START WHERE YOU ARE + 5-LINE 25% PROFIT LEDGER              -->
+    <!-- =================================================================== -->
+    <section id="view-start" class="view-panel hidden space-y-5 fade-in">
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 sm:p-6 space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+          <div>
+            <h2 class="text-lg font-bold text-[var(--foreground)]">Start Where You Are: Context- &amp; Tenant-Smart ROI Finder</h2>
+            <p class="text-xs text-[var(--muted-foreground)] mt-0.5">
+              Strictly matches your Indian ecology, cash limit, and land tenure—honestly separating Cash Outlay from Labour Effort.
+            </p>
+          </div>
+          <div class="px-3.5 py-2 rounded-xl bg-[var(--content)] border border-[var(--card-border)] text-xs shrink-0">
+            <span class="text-[var(--muted-foreground)]">Saved Progress:</span>
+            <strong id="done-counter" class="font-mono text-[var(--success)] ml-1">0 / 21</strong>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+          <div class="space-y-1.5">
+            <label for="st-farm" class="block text-xs font-bold text-[var(--foreground)]">1. Farm Ecology (Synced)</label>
+            <select id="st-farm" class="w-full rounded-xl bg-[var(--content)] border border-[var(--border)] px-3 py-2.5 text-xs sm:text-sm text-[var(--foreground)]">
+              <option value="dryland">Rainfed Dryland (Deccan / Rajasthan / Plateau)</option>
+              <option value="plains">Irrigated Plains (Punjab / Haryana / UP / Sugarcane)</option>
+              <option value="wet_hill">Humid Delta / Floodplain / Hills (East / NE / Kerala)</option>
+            </select>
+          </div>
+          <div class="space-y-1.5">
+            <label for="st-pain" class="block text-xs font-bold text-[var(--foreground)]">2. Biggest Leak Hurting You</label>
+            <select id="st-pain" class="w-full rounded-xl bg-[var(--content)] border border-[var(--border)] px-3 py-2.5 text-xs sm:text-sm text-[var(--foreground)]">
+              <option value="water_short">Dry spells / erratic rain / falling borewell</option>
+              <option value="input_debt">Heavy urea, fertilizer, seed &amp; spray bills</option>
+              <option value="pest_weed">Pests, fungal wilt, weeds, or weak germination</option>
+              <option value="soil_dead">Hard crusted / acidic / sodic soil or straw burning</option>
+              <option value="low_price">Distress mandi selling / weevils / veg rot / dairy lag</option>
+              <option value="water_excess">Flooding / waterlogging / high paddy labour</option>
+            </select>
+          </div>
+          <div class="space-y-1.5">
+            <label for="st-budget" class="block text-xs font-bold text-[var(--foreground)]">3. Spare Cash THIS Season</label>
+            <select id="st-budget" class="w-full rounded-xl bg-[var(--content)] border border-[var(--border)] px-3 py-2.5 text-xs sm:text-sm text-[var(--foreground)]">
+              <option value="zero">₹0–₹500 Cash (Immediate Zero/Micro Outlay)</option>
+              <option value="low">Low (&lt; ₹5,000 / acre or shared CHC rent)</option>
+              <option value="scale">Compounding (₹15,000+ / PMKSY / FPO)</option>
+            </select>
+          </div>
+          <div class="space-y-1.5 flex flex-col justify-end">
+            <label class="flex items-start gap-2.5 p-2.5 rounded-xl bg-[var(--content)] border border-[var(--border)] cursor-pointer hover:border-[var(--primary)] transition">
+              <input id="st-tenant" type="checkbox" class="mt-0.5 accent-[var(--primary)]" />
+              <span class="text-xs leading-snug">
+                <strong class="text-[var(--foreground)] block">Tenant / 1-Season Payback Only</strong>
+                <span class="text-[var(--muted-foreground)]">Skip multi-year ponds, drip &amp; trees</span>
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ranked Top 3 Unchecked Actions -->
+      <div id="st-results" class="space-y-4"></div>
+
+      <!-- Embedded 30-Second 5-Line "25% Test Plot vs Old Plot" Ledger (A2 & A2+FL Honest!) -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h3 class="text-base font-bold text-[var(--foreground)]">The 5-Line Farm Profit Ledger (Cash Profit + True Profit After Labour)</h3>
+            <p class="text-xs text-[var(--muted-foreground)]">Compare your 25% trial corner vs. your regular field honestly—including the value of extra family/hired labour days (A2+FL) so hidden drudgery never fools you.</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2 text-xs">
+            <label class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[var(--content)] border border-[var(--border)]">
+              <span class="text-[var(--muted-foreground)]">Local Wage/Day: ₹</span>
+              <input id="l-wage" type="number" min="0" value="350" class="w-16 bg-transparent font-mono font-bold text-[var(--foreground)] focus:outline-none" />
+            </label>
+            <button id="ledger-preset" class="px-3 py-1.5 rounded-lg bg-[var(--content)] border border-[var(--border)] text-xs font-semibold text-[var(--primary)] cursor-pointer">Load Realistic Example</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs">
+            <!-- Old Plot Inputs -->
+            <div class="p-4 rounded-xl bg-[var(--content)] border border-[var(--card-border)] space-y-2.5">
+              <div class="font-bold text-[var(--muted-foreground)] uppercase tracking-wider">Old Method (Per Acre)</div>
+              <label class="block space-y-1"><span>Cash Spent (Seed+NPK+Spray+Diesel, ₹)</span><input id="l-old-cost" type="number" min="0" value="18000" class="w-full rounded-lg bg-[var(--card)] border border-[var(--border)] px-2.5 py-1.5 text-[var(--foreground)] font-mono"/></label>
+              <label class="block space-y-1"><span>Family / Hired Labour Days</span><input id="l-old-lab" type="number" min="0" value="22" class="w-full rounded-lg bg-[var(--card)] border border-[var(--border)] px-2.5 py-1.5 text-[var(--foreground)] font-mono"/></label>
+              <label class="block space-y-1"><span>Irrigation Pump Hours (or 1 if Rainfed)</span><input id="l-old-wat" type="number" min="1" value="35" class="w-full rounded-lg bg-[var(--card)] border border-[var(--border)] px-2.5 py-1.5 text-[var(--foreground)] font-mono"/></label>
+              <label class="block space-y-1"><span>Harvest Sale Value (₹)</span><input id="l-old-rev" type="number" min="0" value="36000" class="w-full rounded-lg bg-[var(--card)] border border-[var(--border)] px-2.5 py-1.5 text-[var(--foreground)] font-mono"/></label>
+            </div>
+            <!-- 25% Test Plot Inputs -->
+            <div class="p-4 rounded-xl bg-[var(--content)] border border-[var(--primary)] space-y-2.5">
+              <div class="font-bold text-[var(--primary)] uppercase tracking-wider">MŪLA 25% Test Plot (Scaled Per Acre)</div>
+              <label class="block space-y-1"><span>Cash Spent (Seed+NPK+Spray+Diesel, ₹)</span><input id="l-new-cost" type="number" min="0" value="13200" class="w-full rounded-lg bg-[var(--card)] border border-[var(--border)] px-2.5 py-1.5 text-[var(--foreground)] font-mono"/></label>
+              <label class="block space-y-1"><span>Family / Hired Labour Days</span><input id="l-new-lab" type="number" min="0" value="20" class="w-full rounded-lg bg-[var(--card)] border border-[var(--border)] px-2.5 py-1.5 text-[var(--foreground)] font-mono"/></label>
+              <label class="block space-y-1"><span>Irrigation Pump Hours (or 1 if Rainfed)</span><input id="l-new-wat" type="number" min="1" value="24" class="w-full rounded-lg bg-[var(--card)] border border-[var(--border)] px-2.5 py-1.5 text-[var(--foreground)] font-mono"/></label>
+              <label class="block space-y-1"><span>Harvest Sale Value (₹)</span><input id="l-new-rev" type="number" min="0" value="44500" class="w-full rounded-lg bg-[var(--card)] border border-[var(--border)] px-2.5 py-1.5 text-[var(--foreground)] font-mono"/></label>
+            </div>
+          </div>
+
+          <!-- Live Ledger Scorecard -->
+          <div id="ledger-out" class="lg:col-span-5 p-4 rounded-xl bg-[var(--content)] border border-[var(--card-border)] space-y-3"></div>
+        </div>
+      </div>
+
+      <!-- Complete 21-Step Persistent Checklist -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h3 class="text-base font-bold text-[var(--foreground)]">Your 21-Step Living Ladder (Auto-Saved on This Device)</h3>
+            <p class="text-xs text-[var(--muted-foreground)]">Check off what you already do—the Top 3 finder above automatically advances to your next highest-ROI unchecked action.</p>
+          </div>
+          <button id="reset-checks" class="px-3 py-1.5 rounded-lg bg-[var(--content)] border border-[var(--border)] text-xs text-[var(--muted-foreground)] hover:text-[var(--foreground)] cursor-pointer">Reset Saved Progress</button>
+        </div>
+        <div id="full-ladder" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5"></div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- VIEW 3: GLOBAL-TO-INDIA PROOF ATLAS (30 BALANCED BREAKTHROUGHS)     -->
+    <!-- =================================================================== -->
+    <section id="view-atlas" class="view-panel hidden space-y-5 fade-in">
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+          <div>
+            <h2 class="text-lg font-bold text-[var(--foreground)]">Global-to-India Proof Atlas: 30 Verified Breakthroughs Across All 7 Roots</h2>
+            <p class="text-xs text-[var(--muted-foreground)] mt-0.5">
+              Every single root backed by multi-decade global and Indian proofs—with realistic constraints and direct Indian field execution.
+            </p>
+          </div>
+          <input id="atlas-search" type="search" placeholder="Search country, bees, dairy, matka, UDP, trellis..." class="w-full md:w-72 rounded-xl bg-[var(--content)] border border-[var(--border)] px-3.5 py-2 text-xs sm:text-sm text-[var(--foreground)] placeholder-[var(--placeholder)] focus:outline-none focus:border-[var(--primary)]" />
+        </div>
+        <div id="atlas-filters" class="flex flex-wrap gap-2"></div>
+      </div>
+
+      <div id="atlas-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-4"></div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- VIEW 4: SHAREABLE 1-PAGE FARMER CARD + 3 WHATSAPP EXPORTS           -->
+    <!-- =================================================================== -->
+    <section id="view-card" class="view-panel hidden space-y-5 fade-in">
+      <div class="no-print bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
+        <div>
+          <h2 class="text-lg font-bold text-[var(--foreground)]">Shareable 1-Page Farmer Card &amp; WhatsApp Broadcasts</h2>
+          <p class="text-xs text-[var(--muted-foreground)]">Built to forward in Indian farmer WhatsApp groups or print as a single-page village poster—plain language, zero jargon, 100% actionable.</p>
+        </div>
+        <div class="flex flex-wrap gap-2 shrink-0">
+          <button id="btn-copy-en" class="px-3.5 py-2 rounded-xl bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-semibold cursor-pointer">Copy WhatsApp (English)</button>
+          <button id="btn-copy-hi" class="px-3.5 py-2 rounded-xl bg-[var(--secondary)] text-[var(--secondary-foreground)] border border-[var(--border)] text-xs font-semibold cursor-pointer">Copy WhatsApp (हिन्दी)</button>
+          <button id="btn-copy-hg" class="px-3.5 py-2 rounded-xl bg-[var(--secondary)] text-[var(--secondary-foreground)] border border-[var(--border)] text-xs font-semibold cursor-pointer">Copy WhatsApp (Hinglish)</button>
+          <button id="btn-print" class="px-3.5 py-2 rounded-xl bg-[var(--content)] text-[var(--foreground)] border border-[var(--border)] text-xs font-semibold cursor-pointer">Print / PDF</button>
+        </div>
+      </div>
+      <div id="copy-toast" class="no-print hidden p-3 rounded-xl bg-[var(--secondary)] border border-[var(--primary)] text-xs font-semibold text-[var(--foreground)] text-center"></div>
+
+      <!-- Printable Poster Card -->
+      <article class="print-card bg-[var(--card)] border-2 border-[var(--border)] rounded-2xl p-6 sm:p-8 space-y-6">
+        <div class="text-center space-y-1.5 pb-5 border-b border-[var(--border)]">
+          <div class="text-xs font-bold uppercase tracking-widest text-[var(--primary)]">MŪLA (मूल) v3.1 · THE 7 ROOTS OF PROFITABLE, LIVING FARMING</div>
+          <h3 class="text-xl sm:text-2xl font-bold text-[var(--foreground)]">Stop Leaking Money. Let Nature Work For You. Start With ₹0 Tomorrow.</h3>
+          <p class="text-xs text-[var(--muted-foreground)] max-w-2xl mx-auto">The world's highest-ROI, science-verified farming &amp; dairy habits—adapted for every Indian acre, from 1-year tenants to village FPOs.</p>
+        </div>
+
+        <div id="poster-rules" class="grid grid-cols-1 md:grid-cols-2 gap-3.5"></div>
+
+        <!-- 6 Zero-Wastage Vows -->
+        <div class="p-4 rounded-xl bg-[var(--content)] border border-[var(--card-border)] space-y-2.5">
+          <div class="text-xs font-bold uppercase tracking-wider text-[var(--error)]">6 Leaks to Stop Immediately (Zero-Wastage Vow)</div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 text-xs">
+            <div class="p-2.5 rounded-lg bg-[var(--card)] border border-[var(--card-border)]"><strong class="text-[var(--foreground)]">1. Never Sow Untested Seed</strong><br/><span class="text-[var(--muted-foreground)]">4-day wet-cloth test + overnight priming (+21% yield at ₹0).</span></div>
+            <div class="p-2.5 rounded-lg bg-[var(--card)] border border-[var(--card-border)]"><strong class="text-[var(--foreground)]">2. Never Burn Straw or Bare Soil</strong><br/><span class="text-[var(--muted-foreground)]">Mulch + stale seedbed saves moisture, diesel &amp; 50%+ weeding.</span></div>
+            <div class="p-2.5 rounded-lg bg-[var(--card)] border border-[var(--card-border)]"><strong class="text-[var(--foreground)]">3. Never Broadcast Urea Blindly</strong><br/><span class="text-[var(--muted-foreground)]">Fix pH first; use ₹100 Leaf Chart, UDP, or 6g root dosing.</span></div>
+            <div class="p-2.5 rounded-lg bg-[var(--card)] border border-[var(--card-border)]"><strong class="text-[var(--foreground)]">4. Never Spray by Calendar</strong><br/><span class="text-[var(--muted-foreground)]">Scout first; use ₹50 fruit-fly traps &amp; protect honeybees (+20–35% yield).</span></div>
+            <div class="p-2.5 rounded-lg bg-[var(--card)] border border-[var(--card-border)]"><strong class="text-[var(--foreground)]">5. Never Pick at Noon or Dump Day-1</strong><br/><span class="text-[var(--muted-foreground)]">Harvest at dawn in crates; store in PICS bags &amp; ZECC coolers.</span></div>
+            <div class="p-2.5 rounded-lg bg-[var(--card)] border border-[var(--card-border)]"><strong class="text-[var(--foreground)]">6. Never Drop 100% Chemicals Overnight</strong><br/><span class="text-[var(--muted-foreground)]">Test on 25% of your land, track a 5-line profit ledger, then scale.</span></div>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-[var(--border)] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-[var(--muted-foreground)]">
+          <div><strong class="text-[var(--foreground)]">The 25% Rule:</strong> Test any new step on 25% of your land → Record <em>Cash, Labour, Water &amp; Net Profit</em> → Scale what wins.</div>
+          <div class="font-mono text-[var(--primary)] shrink-0">MŪLA v3.1 · Share Freely</div>
+        </div>
+      </article>
+    </section>
+
+    <footer class="no-print text-xs text-[var(--muted-foreground)] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 px-1">
+      <div><strong class="text-[var(--foreground)]">Evidence Base:</strong> ICAR, NDDB, ICRISAT, IRRI, IFDC, AVRDC, Purdue PICS, UC Davis, FAO GIAHS, ICIPE, EMBRAPA, World Bank, GIST Impact/RySS, IMD Meghdoot.</div>
+      <div class="font-mono">MŪLA v3.1 · 7 Roots · 30 Global Proofs</div>
+    </footer>
+  </div>
+
+  <script>
+    // =========================================================================
+    // THE 7 ENMESHED ROOTS (v3.0 — 99.99% COMPLETE, ECOLOGY-SYNCED)
+    // =========================================================================
+    const ROOTS = [
+      {
+        id: "water",
+        num: 1,
+        short: "Water",
+        color: "var(--chart-1)",
+        title: "Time the Sky, Slow the Rain, Meter Every Drop",
+        law: "Sow with the weather, never let rain run fast off your land, and never flood roots that only need damp soil.",
+        leakStopped: "60–75% of monsoon lost to runoff, 1%/day yield loss from late sowing, and 30–50% wasted pump water.",
+        feeds: [2, 3, 4],
+        fedBy: [2, 5, 7],
+        linkNote: "Timely, slowed water wakes Soil Life (Root 3) and protects Primed Seeds (Root 4); Mulch Armor (Root 2) and Bund Trees (Root 5) hold that moisture 3× longer.",
+        science: "Plant roots need soil oxygen alongside water (field capacity). Continuous paddy flooding emits methane and burns 3,000–5,000 L/kg grain; crusted drylands shed monsoon rain before it enters the root zone. Checking free IMD Meghdoot block weather prevents false-shower germination failure and March terminal heat loss in wheat.",
+        proofs: [
+          "Burkina Faso (Yacouba Sawadogo — Zaï Pits): Hand-dug micro-pits + manure + stone lines raised sorghum 2–5× (319–642 → 975–1,600 kg/ha) and lifted village wells 5–17 m.",
+          "Israel (Simcha Blass — Drip): One thriving tree beside a slow leaking pipe birthed drip irrigation—saving 40–70% water while raising crop quality.",
+          "India (Hiware Bazar, ICRISAT BBF & ICAR DSR): Gram Sabha water budgets survived −50% rain; Broad Bed Furrows lifted soybean +15–25% (B:C 2.90); DSR cut paddy water 20–28%."
+        ],
+        rungs: [
+          {
+            level: "zero", tag: "₹0 Cash", labour: "Low–Med Labour", tenantSafe: true,
+            title: "Weather-Timed Sowing + Stop Flooding (AWD) / Contour Furrows",
+            how: {
+              dryland: "Check free IMD Meghdoot block weather before sowing (never gamble on a false first shower). Always plough & sow ACROSS the slope. On dead crusted patches, dig hand-hoe Zaï pits (high dry-season labour—start on your worst 10–20% patch); for orchard saplings or veg hills, bury a ₹50 unglazed clay pot (Olla/Matka) beside roots for 50–70% water savings with zero power.",
+              plains: "Hit the exact wheat sowing window (missing by 14 days costs ~14% yield to March heat). In paddy, use Alternate Wetting & Drying (AWD): bury a perforated PVC pipe and pump water ONLY when level drops 15 cm below surface.",
+              wet_hill: "Track IMD cloudburst alerts before transplanting/harvesting. Cut shallow perimeter drainage ditches so stagnant floodwater moves instead of rotting roots; align hill rows along stone/earth contours."
+            },
+            roi: "Saves 20–30% water & diesel/electricity immediately (50–70% with ₹50 Matka clay pots on saplings); avoids false-rain re-sowing.",
+            payback: "Month 1"
+          },
+          {
+            level: "low", tag: "Low Cost (CHC Rent)", labour: "Low Labour", tenantSafe: true,
+            title: "Rent Broad Bed Furrow (BBF), Laser Leveler, or Direct Seeded Rice (DSR)",
+            how: {
+              dryland: "Rent a tractor BBF planter via a village Custom Hiring Centre (CHC) on black/medium soils: raised beds drain cloudbursts while furrows hold dry-spell moisture.",
+              plains: "Rent a Laser Land Leveler (cuts irrigation 15–20% immediately) and adopt Direct Seeded Rice (DSR) on medium-heavy soils (avoid sandy soils where iron deficiency hits).",
+              wet_hill: "Shape 15–20% of low-lying paddy edge into a sunken fish/freshwater trench, piling excavated soil into raised flood-proof vegetable beds."
+            },
+            roi: "DSR saves ₹6,700/ha (water + labour) & 30–40% methane; BBF lifts rainfed yields +15–25%.",
+            payback: "1 Season"
+          },
+          {
+            level: "scale", tag: "Compounding", labour: "Low Ongoing", tenantSafe: false,
+            title: "Runoff Farm Pond + PMKSY Drip Fertigation + Village Water Budget",
+            how: {
+              dryland: "Dedicate 5% low corner to a runoff-fed lined pond (NEVER fill from borewells!), add PMKSY subsidized drip for lifesaving irrigations, and pass a Gram Sabha water budget.",
+              plains: "Install PMKSY drip + fertigation on sugarcane/cotton/horticulture (40–60% water cut) and pair solar pumps (PM-KUSUM) with grid buyback so farmers earn cash instead of over-pumping.",
+              wet_hill: "Revive upslope spring-sheds (contour recharge trenches) and gravity-fed bamboo/HDPE pipelines (Zabo / Apatani principle—zero electricity)."
+            },
+            roi: "40–60% water savings, bonus second crop, permanent drought/flood insulation.",
+            payback: "1.5–2.5 Seasons"
+          }
+        ],
+        watchOut: "Never dig ponds or install solar pumps without a village cropping water limit—cheap water triggers sugarcane/paddy expansion that drains aquifers faster (Ralegan Siddhi / Punjab trap)."
+      },
+      {
+        id: "armor",
+        num: 2,
+        short: "Armor",
+        color: "var(--chart-2)",
+        title: "Armor the Soil & Protect Micro-Climates",
+        law: "Bare soil is bleeding soil. Keep mulch or living roots covering earth, flush weeds early (Stale Seedbed), and use low tunnels to beat gluts.",
+        leakStopped: "Topsoil washing away, 50°C sun baking microbes, diesel wasted on 4–6 ploughings, heavy weeding bills, and veg price crashes.",
+        feeds: [1, 3, 6],
+        fedBy: [1, 4, 6],
+        linkNote: "Surface armor multiplies Water Infiltration (Root 1) and shields Microbes (Root 3); Polyculture stalks (Root 4) & Zero-Burning (Root 6) supply the blanket.",
+        science: "Raindrops strike bare soil like micro-bombs, crusting pores shut. Repeated ploughing destroys mycorrhizal fungi and burns off humus. A Stale Seedbed (pre-wetting soil so the first weed flush germinates, then lightly scraping BEFORE sowing) cuts seasonal weeding 50–70% at ₹0 cash. Israeli Soil Solarization (3–4 summer weeks under clear plastic) kills fungal wilts & nematodes; low plastic tunnels capture 2–4× off-season vegetable prices.",
+        proofs: [
+          "Brazil (Herbert Bartz — Plantio Direto, 33M ha): Zero-till + straw cover cut soil erosion 97% and raised farm incomes +57% in 5 years.",
+          "China / Israel / ICAR Bikaner (Low-Tunnel Off-Season Veg): Simple hoop tunnels lifted vegetable net returns from ₹12,300/acre (open field, B:C 1.39) to ₹85,000/acre (B:C 2.53).",
+          "India (Punjab Happy Seeder) & USA (Gabe Brown): Happy Seeder saved ~37.3% diesel & ~20% water with zero smog; living armor lifted infiltration 16× (0.5 → 8 in/hr)."
+        ],
+        rungs: [
+          {
+            level: "zero", tag: "₹0 Cash", labour: "Low Labour", tenantSafe: true,
+            title: "Zero Straw Burning + Stale Seedbed Weed Flush + Row Mulching",
+            how: {
+              dryland: "Never burn stalks or pulled weeds—lay them between crop rows as a cooling blanket. Use the ₹0 Stale Seedbed trick: let the first weed flush sprout after pre-monsoon shower, scrape lightly ONCE, then sow clean!",
+              plains: "Never burn paddy straw or sugarcane trash—every burned tonne destroys ~5.5 kg N, 2.3 kg P, 25 kg K & 400 kg C. Pre-irrigate DSR/veg beds to flush & clear weeds before sowing (cuts herbicide bills 50–70%).",
+              wet_hill: "Never plough slopes downhill; immediately blanket terraced beds with leaf litter, banana stems, or straw to prevent monsoon soil washout."
+            },
+            roi: "Saves ₹3,000–5,000/ha in tractor diesel + cuts weeding/herbicide bills 50–70% + keeps free NPK in soil.",
+            payback: "Day 1"
+          },
+          {
+            level: "low", tag: "Low Cost (₹1k–5k)", labour: "Low–Med Labour", tenantSafe: true,
+            title: "Happy Seeder / Paira Pulses OR Nursery Solarization & Mini Low-Tunnels",
+            how: {
+              dryland: "Solarize moist May vegetable nursery beds under clear plastic for 3–4 weeks (wipes out wilt & weeds cleanly). For winter/early-summer gourds, melons & tomatoes, test a 200 m² bamboo/GI Low Tunnel to hit markets 35 days early!",
+              plains: "Rent a Happy Seeder (with Super-SMS combine) to sow wheat directly through uncut paddy straw—zero smoke, zero plough, cooling mulch beats March heatwaves.",
+              wet_hill: "Broadcast cheap lentil, lathyrus, or linseed into moist standing paddy 10 days before harvest (Zero-Till Paira/Utera) so winter rice-fallows earn a bonus pulse crop."
+            },
+            roi: "−37% diesel & −20% water (Happy Seeder); 70–95% less nursery wilt; B:C 2.53 on off-season low-tunnel veg.",
+            payback: "1 Season"
+          },
+          {
+            level: "scale", tag: "Compounding", labour: "Med Labour", tenantSafe: false,
+            title: "365-Day Living Root Cover (PMDS / Summer Legume Cover)",
+            how: {
+              dryland: "Adopt APCNF's Pre-Monsoon Dry Sowing (PMDS): pellet 12–15 diverse seeds in clay/microbes before monsoon so early dew wakes living roots even in summer heat.",
+              plains: "Insert 60-day Summer Moong between wheat and rice (fixes 30–40 kg N/ha + shades bare May soil) instead of leaving fields naked or planting water-guzzling Sathi paddy.",
+              wet_hill: "Maintain permanent living leguminous groundcovers (cowpea/sweet potato/Mucuna) under hillside orchards & spice terraces year-round."
+            },
+            roi: "Rebuilds Soil Organic Carbon steadily from <0.4% toward 0.8–1.2% over 3 years.",
+            payback: "2–3 Seasons"
+          }
+        ],
+        watchOut: "Break any rock-hard tractor plough pan ONCE with a chisel/subsoiler before permanent zero-till. In low tunnels, vent sides daily once daytime temperatures cross 32°C so flowers don't scorch."
+      },
+      {
+        id: "microbes",
+        num: 3,
+        short: "Soil & NPK",
+        color: "var(--chart-3)",
+        title: "Test pH First, Measure Leaves, Micro-Dose & Wake Microbes",
+        law: "Match the fertilizer tool to your crop, fix acidic/sodic pH first, and remember: microbes unlock nutrients—they don't create minerals out of thin air.",
+        leakStopped: "50–70% broadcast urea wasted, phosphorus locked in acidic/sodic soils, and flower-drop from hidden Boron/Zinc deficits.",
+        feeds: [4, 5, 6],
+        fedBy: [1, 2, 6],
+        linkNote: "Water (Root 1), Mulch (Root 2) & Dung Loops (Root 6) keep soil life alive; balanced nutrition builds pest-resistant, heavy-grain Crops (Root 4 & 5).",
+        science: "Mass-Balance Principle: Every tonne of harvested grain exports ~15–25 kg N, 4–6 kg P, and 5–15 kg K. Bio-inoculants (Jeevamrut, Korean IMO, PSB, Rhizobium) dramatically accelerate cycling, but exported minerals must be replenished via compost, manure, ash, or targeted micronutrients. Pushing urea briquettes 7–10 cm below wet paddy mud (Bangladesh UDP) prevents 30–40% ammonia volatilization; foliar Boron/Zinc at flowering stops flower-drop even when dry roots can't absorb soil minerals.",
+        proofs: [
+          "IRRI / ICAR (₹100 Leaf Color Chart) & IFDC Bangladesh (Urea Deep Placement — 2M+ farmers): LCC cuts urea 15–30%; pushing urea briquettes 7 cm deep in wet rice cuts N loss 30–40% & lifts yield +15–20%.",
+          "ICRISAT Sahel & Ethiopia (6 g Bottle-Cap Microdosing): Root-side dosing in spaced sorghum/millet cut fertilizer 25–50% while lifting yield +15–28% (36% IRR across 170,000 homes).",
+          "Amazon (2,500-yr Terra Preta), Korea (KNF IMO) & Andhra (APCNF): Charged biochar holds 3× more OM/N/P; APCNF saved ₹11,268/ha on chemicals & lifted net output value +62%."
+        ],
+        rungs: [
+          {
+            level: "zero", tag: "₹0–₹200 Cash", labour: "Low–Med Labour", tenantSafe: true,
+            title: "DIY pH Check + ₹100 Leaf Chart / UDP / 6g Root Dosing + Flowering Foliar Micronutrient",
+            how: {
+              dryland: "Run the ₹0 kitchen pH check today + apply for free Soil Health Card. For spaced crops (millet, sorghum, maize, cotton, veg), STOP broadcasting—place a 6 g bottle-cap pinch 5 cm beside each plant/hill. At flowering, a ₹200/acre foliar Boron/Zinc spray stops flower-drop.",
+              plains: "Buy a ₹100 IRRI Leaf Color Chart (LCC) for rice, wheat & maize: top-dress urea ONLY below Shade 4. Use a seed-cum-fertilizer drill for basal wheat, or Urea Deep Placement (UDP briquettes 7 cm deep) in transplanted paddy.",
+              wet_hill: "Run the ₹0 baking-soda acid-soil check (hill soils <5.5 pH lock up phosphorus!). Coat seeds with Beejamrut / Rhizobium / Trichoderma and use the ₹100 LCC or UDP in wet lowland rice."
+            },
+            roi: "Cuts urea/NPK bills 20–50% immediately (+15–20% rice yield via UDP); ₹200 foliar spray prevents flowering losses.",
+            payback: "1st Crop (Weeks)"
+          },
+          {
+            level: "low", tag: "Low Cost (₹500–2k)", labour: "Med Labour", tenantSafe: true,
+            title: "Correct pH (Lime/Gypsum) + Local Forest Microbes (IMO/Jeevamrut) + Charged Biochar",
+            how: {
+              dryland: "Ferment Jeevamrut or trap native banyan/bamboo forest microbes (Korean IMO). Char woody stalks (cotton/tur) in a low-oxygen pit and SOAK 14 days in dung/urine slurry (Terra Preta) before root application.",
+              plains: "Reclaim sodic/alkaline patches with subsidized gypsum; apply SHC-matched Zinc/Sulphur + shaded FYM/vermicompost so biological & mineral fertility work together.",
+              wet_hill: "Apply small furrow doses of agricultural lime on acidic hills (unlocks trapped P instantly), grow Azolla mats in wet paddy (30–40 kg free N/ha), and apply forest IMO + compost."
+            },
+            roi: "Unlocks hidden 15–30% yield bottlenecks; builds permanent Terra Preta carbon & cuts chemical spend ₹8–11k/ha.",
+            payback: "1–2 Seasons"
+          },
+          {
+            level: "scale", tag: "Compounding", labour: "Shared SHG", tenantSafe: false,
+            title: "Village Women SHG Bio-Input Hub + Phased 3-Year Natural Transition",
+            how: {
+              dryland: "Run a village Bio-Input Resource Centre (NMNF grant) via women SHGs producing verified vermicompost, Trichoderma, bio-fertilizers, and enriched compost so supply never fails.",
+              plains: "Combine SHC nutrient budgeting + straw retention + legume green-manure + SHG bio-inputs to cut synthetic dependency 40–60% over 3 years without a Year-1 yield crash.",
+              wet_hill: "Pair community livestock compost + Azolla + charged bamboo/husk biochar + PGS-India cluster organic compliance for premium hill spice/grain markets."
+            },
+            roi: "APCNF benchmark: −22.8% paid-out cost and +62% higher net output value/ha.",
+            payback: "2–3 Seasons"
+          }
+        ],
+        watchOut: "TWO STRICT RULES: (1) Never apply raw uncharged biochar—soak in manure/compost slurry first or it temporarily robs nitrogen. (2) Microbes cannot manufacture exported P/K/Zn forever—always return compost/manure/minerals to preserve mass balance."
+      },
+      {
+        id: "diversity",
+        num: 4,
+        short: "Seeds & Space",
+        color: "var(--chart-4)",
+        title: "Test & Prime Seeds, Rotate Families & Stack Space",
+        law: "Test seed in a wet rag, soak overnight, never repeat the same crop family back-to-back, and stack roots & vertical height.",
+        leakStopped: "Sowing dead seed, soil-borne wilt from repeated monocrops, 70% wasted nursery seed, and wet-mud vegetable rot.",
+        feeds: [2, 5, 6],
+        fedBy: [1, 3, 7],
+        linkNote: "Water (Root 1) & Soil Biology (Root 3) power explosive tillering; Diverse canopies & vertical trellises build Mulch (Root 2), confuse Pests (Root 5), and feed Livestock (Root 6).",
+        science: "The 4-day Rag-Doll germination test catches weak seed before sowing. Overnight Seed Priming lifts emergence speed 22% and dryland yield 21–28%. Strict Crop-Family Rotation (never planting Solanaceae—tomato/brinjal/chilli/potato—twice consecutively) starves soil-borne wilt & nematodes for ₹0. Vertical bamboo trellising lifts vines off wet mud (cutting fruit rot 50–70% and doubling sunlight per sq. m), while wild-rootstock grafting blocks monsoon bacterial wilt.",
+        proofs: [
+          "UC Davis / ICAR (Rag-Doll Seed Test) & ICRISAT (On-Farm Seed Priming): ₹0 wet-cloth check prevents dead-seed disaster; ₹0 overnight water soaking lifted dryland yields +21% (+22–28% under stress).",
+          "Madagascar → India (SRI / Odisha SMI): Young single seedlings cut seed 70–85%, water 25–40%, and doubled Odisha millet yields (5.79 → 12.72 q/ha; top plots ~30 q/ha).",
+          "Mesoamerica (Milpa), DDS (Panta) & Taiwan AVRDC (Grafting + Trellising): Cereal+legume rotation breaks disease free; bamboo trellising cuts monsoon veg rot 50–70%; grafting stops bacterial wilt."
+        ],
+        rungs: [
+          {
+            level: "zero", tag: "₹0 Cash", labour: "Low Labour", tenantSafe: true,
+            title: "4-Day Wet-Cloth Seed Test + Overnight Priming + Strict Family Rotation & Legume Rows",
+            how: {
+              dryland: "Test 100 seeds in a damp rag 4 days early; soak maize/chickpea/millet overnight in water. NEVER plant the same crop family back-to-back (rotate cereals → legumes → oilseeds/veg). Always intercrop 4:2 with pulses (Soybean+Tur, Bajra+Mothbean).",
+              plains: "Test saved wheat/paddy germination before sowing; prime upland/DSR rice or maize overnight; break continuous rice-wheat with Moong/Mustard/Maize rotation; intercrop Moong/Urad in sugarcane.",
+              wet_hill: "Test & prime hill seeds; never repeat tomato/brinjal/chilli/ginger on the same terrace two years running; use flood-tolerant Swarna-Sub1 or Pokkali; pair climbing beans with maize (Milpa)."
+            },
+            roi: "Zero dead-seed disasters + ~21% yield lift from ₹0 priming + free soil-disease break & legume nitrogen.",
+            payback: "1st Crop (Immediate)"
+          },
+          {
+            level: "low", tag: "Low Cost (₹500–2k)", labour: "Med–High (SRI)", tenantSafe: true,
+            title: "Bamboo Vertical Trellising + Grafted/Pro-Tray Veg OR SRI/SMI + Cono-Weeder",
+            how: {
+              dryland: "Vegetable growers: lift gourds, beans & tomatoes onto simple bamboo/wire trellises (cuts rot 50–70% & doubles yield/m²), raise seedlings in coco-peat pro-trays, or use wilt-proof grafted tomato/brinjal seedlings.",
+              plains: "Where drainage is controllable, pilot SRI or SSI (Sugarcane) on 25% of land with a ₹1,500 rotary cono-weeder; stake monsoon tomatoes & bitter gourd off wet soil.",
+              wet_hill: "Adopt System of Millet Intensification (SMI) on ragi uplands or SRI on well-drained midlands (NOT deep floods!) + vertical bamboo trellises for hill cucurbits & beans."
+            },
+            roi: "Cuts seed 70–85%, lifts ragi/rice +20–50%, cuts monsoon veg rot 50–70% & stops bacterial wilt.",
+            payback: "1 Season"
+          },
+          {
+            level: "scale", tag: "Compounding", labour: "Community", tenantSafe: false,
+            title: "Village Community Seed Bank + Staggered 3-Season Harvest Portfolio",
+            how: {
+              dryland: "Build a women-led Community Seed Bank (DDS Zaheerabad model) saving 10–30 drought-hardy heirloom varieties in hermetic bins with neem—ending annual seed cash debt.",
+              plains: "Diversify 25–30% continuous rice-wheat acreage into staggered pulses, mustard, maize, or seasonal vegetables to dodge mandi harvest gluts.",
+              wet_hill: "Conserve traditional Himalayan Barahnaja / Koraput landraces (103 conserved in Odisha) paired with high-value hill spices."
+            },
+            roi: "Zero seed debt, multiple cash dates per year, climate-adapted local genetics.",
+            payback: "2 Seasons"
+          }
+        ],
+        watchOut: "Prime seeds ONLY when soil has sowing moisture and sow within 24 hours (primed seeds die in bone-dry dust or if delayed 3 days by rain). Never over-soak past 8–12 hrs. Skip SRI in uncontrolled deep floods."
+      },
+      {
+        id: "allies",
+        num: 5,
+        short: "Living Allies",
+        color: "var(--chart-5)",
+        title: "Recruit Nature's Unpaid Staff (Bees, Birds, Traps, Ducks & Trees)",
+        law: "Scout before spraying, invite honeybees to boost pollination, hang ₹50 fruit-fly traps, protect bund stumps, and let trap borders, ducks & fish kill pests free.",
+        leakStopped: "Expensive pesticide treadmills, 20–35% lost pollination yield, 30–80% fruit-fly damage, and dead nursery tree plantings.",
+        feeds: [1, 2, 6],
+        fedBy: [3, 4],
+        linkNote: "Diverse crops (Root 4) feed Honeybees & predators; Bund Trees cool farms to save Water (Root 1) & drop Mulch (Root 2), while border fodder, honey & fish/ducks power Loops (Root 6).",
+        science: "Calendar spraying kills honeybees, spiders, and parasitic wasps faster than pests. Cross-pollination by honeybees lifts Indian mustard, sunflower, coriander, pulse & orchard yields 17–35% on zero extra land. Species-specific ₹50 methyl eugenol / cue-lure bottle traps intercept male fruit flies before eggs ruin mangoes, guavas, and gourds. FMNR prunes existing living tree stumps (>90% survival vs <20% for saplings).",
+        proofs: [
+          "ICAR India (Honeybee Pollination & ₹50 Fruit-Fly Traps): Bee colonies lifted crop yields 17–35% (+₹8,260–₹21,900/ha combined extra income on ZERO extra land); pheromone bottle traps save 30–80% of fruit/gourd harvests.",
+          "Niger (Tony Rinaudo — FMNR): Pruning shoots from existing living tree stumps regrew 200M trees on 5M ha (+500,000 t grain/yr, 30–45 kg/day fodder) at near-zero cash cost.",
+          "East Africa (Push-Pull), Japan (Aigamo Ducks) & NE India (Apatani Fish): Trap borders + ducks/carp slash pesticides 40–100% while adding dairy fodder & fish/duck income."
+        ],
+        rungs: [
+          {
+            level: "zero", tag: "₹0–₹50 Cash", labour: "Low Labour", tenantSafe: true,
+            title: "Weekly Scouting + 30 Bird Perches/ha + ₹50 Fruit-Fly Traps + Protect Bund Stumps (FMNR) & Bees",
+            how: {
+              dryland: "Place 30 T-shaped bamboo bird perches/ha (birds eat caterpillars free) & hang ₹50 methyl eugenol/cue-lure bottle traps in gourds/orchards (saves 30–80% fruit). Never spray morning flowers! On owned bunds, stop slashing native Neem/Khejri/Babool sprouts—prune 2 straight stems (FMNR).",
+              plains: "Install 30 bird perches/ha, hang ₹50 fruit-fly traps in cucurbits/guava/mango, leave flowering bund strips for bees & spiders, and scout 20 plants weekly before spraying.",
+              wet_hill: "Preserve upslope forest strips and bund trees (alder/gliricidia); hang cue-lure traps in hill gourds/citrus; avoid daytime flowering sprays; scout rice/veg weekly."
+            },
+            roi: "Saves ₹2,000–5,000/ha in sprays immediately; protects pollinators (+15–25% yield) & saves 30–80% fruit/gourds.",
+            payback: "Month 1"
+          },
+          {
+            level: "low", tag: "Low Cost (₹500–4k)", labour: "Low–Med Labour", tenantSafe: true,
+            title: "India-Ready Push–Pull Borders + Pheromone Traps + 2–4 Honeybee Boxes",
+            how: {
+              dryland: "Ring cotton/veg/pulses with locally available Indian Push-Pull borders (Marigold, Castor, Maize/Napier) + Coriander/Cowpea intercrop + pheromone traps & NSKE 5% neem. Place 2–4 bee boxes near flowering pulses/oilseeds/orchards (or host migratory beekeepers free!).",
+              plains: "Plant tall Sorghum/Maize/Napier borders around cotton/veg for pest trapping + cattle fodder; place Apis mellifera boxes beside mustard/sunflower/coriander (+₹21,900/ha combined ICAR gain).",
+              wet_hill: "Keep indigenous Apis cerana bee boxes near cardamom/litchi/mustard/orchards; use marigold borders & Trichoderma dips for ginger/turmeric rhizomes."
+            },
+            roi: "Cuts pesticide costs 40–70% + lifts mustard/orchard yields 17–35% + bonus honey & border fodder.",
+            payback: "1 Season"
+          },
+          {
+            level: "scale", tag: "Compounding", labour: "Med–High (Prune/Tend)", tenantSafe: false,
+            title: "Rice–Fish–Duck–Azolla Symbiosis OR Multi-Tier Food Forests (Araku / Syntropic)",
+            how: {
+              dryland: "Build drought-hardy bund agroforestry (Moringa, Ber, Custard Apple, Melia dubia, Gliricidia) for 3–5°C cooler microclimate, pruning biomass back as mulch.",
+              plains: "Plant boundary timber/fruit windbreaks (Poplar, Melia, Mango/Guava) that block hot loo winds without shading interior grain strips.",
+              wet_hill: "Release 15–20 ducklings/acre (Aigamo) or carp fingerlings into terraced refuge pits (Apatani) with Azolla; on humid Ghats slopes build multi-tier shade-coffee/pepper/fruit forests (Araku / Syntropic—4–8 yr skilled pruning horizon)."
+            },
+            roi: "+200–500 kg/ha fish/duck cash with zero chemicals; long-term multi-tier tree wealth.",
+            payback: "1–5 Seasons"
+          }
+        ],
+        watchOut: "Never spray insecticides during flowering hours (7 AM–3 PM) or near Rice-Fish/Duck plots—one careless spray wipes out bees, fish, and ducks. Syntropic dense forests fit humid Ghats/NE, not 350 mm deserts."
+      },
+      {
+        id: "loops",
+        num: 6,
+        short: "Loops & Storage",
+        color: "var(--chart-6)",
+        title: "Harvest at Dawn, Store Airtight, Protect Cattle & Close Waste Loops",
+        law: "Pick cool at dawn, store grain airtight, vaccinate & mineral-feed cattle, and never throw away 20% of your harvest to rot or wasted fodder.",
+        leakStopped: "30–50% midday bruising/rot, 10–30% weevil loss, 30–40% fodder waste, and catastrophic ₹50k livestock deaths.",
+        feeds: [2, 3, 7],
+        fedBy: [2, 4, 5],
+        linkNote: "Crop stalks + Push-Pull fodder (Root 4 & 5) feed healthy dairy/goats whose shaded manure rebuilds Armor (Root 2) & Microbes (Root 3); Dawn harvest, PICS bags & ZECC give holding power for Collective Sales (Root 7).",
+        science: "Post-harvest & livestock leverage: Harvesting vegetables/fruits at 5–8 AM (before midday field heat) and packing in ventilated plastic crates instead of crushed sacks cuts bruising & spoilage 30–50% at near-zero cost. Purdue PICS bags starve grain weevils of O₂; ICAR's brick-sand ZECC drops temperature 10–15°C without power. In dairy (70M+ Indian homes), ₹20–₹50 preventive deworming + free state FMD/PPR/HS vaccines prevent fatal herd wipeouts, chaff-cutting cuts fodder waste 30–40%, and 50 g/day mineral mixture lifts milk +6.2% & fat +5.3%.",
+        proofs: [
+          "Purdue PICS Bags & ICAR ZECC + Dawn Crate Harvest: Picking at dawn in crates cuts veg bruising 30–50%; PICS bags hold grain weevil-free 170+ days (+30–60% off-season price); brick-sand ZECC extends veg life +5–11 days with zero power.",
+          "ICAR / NDDB Precision Dairy (510-animal Bihar trial): Free state vaccinations + ₹30 deworming protect ₹50k livestock assets; 50 g/day mineral mix added +0.49 L/day milk & +₹15.8/day/cow net profit; chaff-cutting saves 30–40% fodder.",
+          "Nagaland (Zabo), Kerala (Pokkali) & Mexico (Chinampas): Gravity cattle-wash-to-paddy loops and rice-shrimp rotations turn every residue into free fertility and daily protein."
+        ],
+        rungs: [
+          {
+            level: "zero", tag: "₹0–₹500 Starter", labour: "Low Labour", tenantSafe: true,
+            title: "Dawn Harvest in Crates + Free Cattle Vaccine/Deworming + 2–4 PICS Bags & 50g Mineral Mix",
+            how: {
+              dryland: "Pick vegetables/fruits at 5–8 AM into ventilated crates (never crushed afternoon sacks—cuts rot 30–50%). Start with 2–4 reusable PICS airtight bags (₹400–₹800) for seed & pulses. Get FREE govt. FMD/PPR vaccines + ₹30 deworming + 50 g/day mineral mix for cattle/goats, and route shed wash to shaded compost.",
+              plains: "Harvest perishables at dawn; seal seed & pulse lots in PICS bags; give dairy animals free FMD/HS vaccines, regular deworming, 50 g/day mineral mix & chopped fodder (cuts 30–40% waste!). Keep dung shaded—sun burns 50% of its nitrogen.",
+              wet_hill: "Pick hill fruits/veg cool at dawn; use PICS bags for humid seeds/spices/rice (stops aflatoxin & weevils); vaccinate/deworm pigs, goats & cattle; channel shed wash into lower terraces (Zabo)."
+            },
+            roi: "Cuts veg spoilage 30–50% at ₹0, protects ₹50k livestock assets, +₹5,700/cow/yr dairy profit, +30–60% off-season grain price.",
+            payback: "Immediate–3 Mo"
+          },
+          {
+            level: "low", tag: "Low Cost (₹2k–5k)", labour: "Med Labour", tenantSafe: true,
+            title: "ICAR Brick-Sand Cool Chamber (ZECC) + Chaff Cutter / Bag Silage + Vermi/Azolla",
+            how: {
+              dryland: "Vegetable/fruit growers: build an ICAR Zero-Energy Cool Chamber (~₹4,000, double brick wall + damp sand) to keep produce fresh 6–11 days with zero electricity. Preserve surplus monsoon green fodder in ₹200 silage bags so summer milk never crashes.",
+              plains: "Use a hand/shared chaff cutter (saves 30–40% dry straw & green fodder), pack monsoon maize/sorghum silage for May lean months, and run a ₹2,000 Azolla/vermicompost unit.",
+              wet_hill: "Build a village ZECC for perishable hill vegetables/fruits (ICAR-NEH proven) and integrate duck/fish/pig waste with biogas/compost."
+            },
+            roi: "Extends veg shelf life 3–4× (stops evening panic dumping); prevents 40–50% summer milk crash.",
+            payback: "1 Season"
+          },
+          {
+            level: "scale", tag: "Compounding", labour: "Shared FPO", tenantSafe: false,
+            title: "Solar Drying, Primary Milling & Zero-Waste Grade-B Processing",
+            how: {
+              dryland: "Install shared solar tunnel dryers, millet dehullers, and mini dal mills (AIF / OMM model) so raw tur/ragi and bruised tomatoes/chillies become shelf-stable flour, dal & spice powders.",
+              plains: "Add village-level cleaning, grading, straw-baling, oyster mushroom beds, or biochar kilns so every kg of residue & Grade-B produce creates secondary cash.",
+              wet_hill: "Set up solar spice dryers (ginger, turmeric, cardamom, pepper) and coffee wet-mills (Araku model) to ship lightweight high-value concentrates instead of rotting bulk."
+            },
+            roi: "Cuts post-harvest loss 30–50%; captures +25–60% value directly at the village gate.",
+            payback: "1–2 Seasons"
+          }
+        ],
+        watchOut: "PICS bags MUST only store well-dried grain (<12–13% moisture) AND sit off mud floors/walls on wooden pallets or charpoys (rats chew plastic liners!). Never skip pre-monsoon cattle vaccines."
+      },
+      {
+        id: "collective",
+        num: 7,
+        short: "Collective",
+        color: "var(--primary)",
+        title: "Never Buy, Borrow, Rent, or Sell Alone",
+        law: "A 1-acre farmer fighting the market alone stays poor; 300 smallholders acting as one company own the chain.",
+        leakStopped: "24–36% informal moneylender interest, retail input markups, idle machine debt, and distress harvest-glut sales.",
+        feeds: [1, 4, 6],
+        fedBy: [3, 6],
+        linkNote: "Airtight storage (Root 6) + soil/residue quality (Root 3) give the collective bargaining power, funding shared CHCs (Root 1 & 2) and Seed Banks (Root 4).",
+        science: "89.4% of Indian agricultural households cultivate under 2 hectares. Alone, they buy inputs at retail on costly informal credit and sell ungraded raw produce at harvest-glut wholesale lows. Farmer-owned collectives (FPOs, Women SHG Federations, CHCs) preserve family land ownership while unlocking KCC 4% formal credit, shared machinery, grading, and direct brand margins.",
+        proofs: [
+          "India (Sahyadri Farms, Nashik): 10 debt-hit grape growers built a 15,000+ farmer-owned company with ₹1,000+ Cr turnover, residue labs, cold chain & global exports.",
+          "India (Araku Tribal Cooperative & Odisha Millets Mission): 80,000+ tribal farmers created 90-point specialty coffee sold in Paris (~1,300 rupee-millionaires); OMM tripled millet household value via women's dehullers + PDS.",
+          "India (Amul, Kudumbashree & DDS Zaheerabad): Women-led and farmer-owned institutions consistently outperform top-down subsidies across decades."
+        ],
+        rungs: [
+          {
+            level: "zero", tag: "₹0 Cash", labour: "Low Labour", tenantSafe: true,
+            title: "15-Farmer Buying/Grading Circle + KCC 4% Credit + Free PGS-India",
+            how: {
+              dryland: "Form a 15–20 farmer village/WhatsApp circle (including women & tenants) to buy inputs wholesale, split mandi transport, sort Grade-A vs Grade-B before weighing, and shift informal debt to Kisan Credit Card (4% effective interest).",
+              plains: "Pool 15–20 neighbours to negotiate bulk custom-hiring rates for Happy Seeders/laser levelers, grade produce before e-NAM/mandi auction, and join free PGS-India if transitioning to natural.",
+              wet_hill: "Organize via Women SHGs / Padasekharam collectives to pool hill spices, millets, honey, or fish-rice lots so itinerant traders can no longer dictate farm-gate prices."
+            },
+            roi: "10–15% instant input discount + 10–20% better sale price + huge interest savings from Day 1.",
+            payback: "1st Sale"
+          },
+          {
+            level: "low", tag: "Shared Equity", labour: "Low Individual", tenantSafe: true,
+            title: "Village Custom Hiring Centre (CHC) & Shared Dehuller / Pack-Shed",
+            how: {
+              dryland: "Pool ₹500–₹1,000/farmer + SMAM subsidy so the village collectively owns a BBF planter, seed drill, chaff cutter, millet dehuller & solar dryer—renting fairly to every member (including tenants).",
+              plains: "Run a village CHC for Happy Seeder, Super-SMS, DSR drill, chaff cutter, and moisture meters—eliminating individual ₹2L+ tractor debt traps.",
+              wet_hill: "Install women-run block-level millet dehullers, spice washers, honey extractors, and ZECC collection sheds."
+            },
+            roi: "Unlocks ₹2L+ precision machines at ~₹1,000/acre rental; slashes women's hand-processing drudgery.",
+            payback: "1 Season"
+          },
+          {
+            level: "scale", tag: "Compounding", labour: "Pro Manager", tenantSafe: false,
+            title: "300+ Farmer-Owned FPO + AIF Cold Chain/Mill + Direct Brand",
+            how: {
+              dryland: "Register a 300+ farmer FPO (SFAC/NABARD 10,000 FPO scheme + Agri Infra Fund 3% interest subvention) to run dal/millet milling, warehouse receipt loans, and direct retail/institutional sales.",
+              plains: "Scale into a residue-tested, QR-traceable FPO (Sahyadri model) selling directly to supermarkets, processors, and export buyers.",
+              wet_hill: "Build terroir/GI single-origin brands (Araku Coffee, Pokkali Rice, Sikkim/NE Spices, Forest Honey) backed by women/tribal cooperatives and public PDS/school nutrition contracts."
+            },
+            roi: "Captures +30–60% more of the consumer rupee; permanent escape from middlemen.",
+            payback: "2–3 Seasons"
+          }
+        ],
+        watchOut: "Never spend lakhs on third-party export organic certification before securing export buyers (Sikkim lesson)—use zero-cost PGS-India locally, and enforce strict transparent FPO accounts before taking credit."
+      }
+    ];
+
+    // =========================================================================
+    // 26 BALANCED GLOBAL-TO-INDIA VERIFIED PROOFS (ALL 7 ROOTS)
+    // =========================================================================
+    const ATLAS = [
+      // ROOT 1 (5)
+      { id: "zai", root: 1, continent: "Africa", place: "Burkina Faso (Sahel)", title: "Zaï Micro-Pits & Stone Bunds", pioneer: "Yacouba Sawadogo", story: "When 1980s droughts turned Sahel farms into rock-hard crust, illiterate farmer Yacouba Sawadogo dug hand-hoe pits packed with manure and contour stone lines—growing a 40-ha forest and reviving dried wells.", result: "Sorghum rose 2–5× (319–642 → 975–1,600 kg/ha); well water rose 5–17 m.", science: "Breaks surface crust, recruits termites to tunnel infiltration pores, and concentrates water + fertility strictly at the root.", india: "Start on your worst 10–20% crusted dryland patch in Bundelkhand, Vidarbha, or Rajasthan (₹0 cash, high dry-season labour)." },
+      { id: "olla", root: 1, continent: "Asia", place: "China, North Africa & Rajasthan (4,000+ yrs)", title: "Buried Clay-Pot (Olla / Matka) Subsurface Irrigation", pioneer: "Ancient Arid Farmers & ICAR-CAZRI", story: "For 4,000 years, desert orchard growers buried unglazed earthenware pots up to their necks beside saplings and filled them weekly—letting plant roots wrap around the damp clay and pull water strictly on demand.", result: "Saves 50–70% water with zero electricity, zero clogging, and >90% dryland sapling survival.", science: "Soil-moisture tension draws water through micro-porous terracotta walls strictly at root depth with near-zero surface evaporation.", india: "Costs ₹50/pot from local village potters—unbeatable for arid Rajasthan, Kutch & Deccan fruit trees and vegetable hills." },
+      { id: "drip", root: 1, continent: "Middle East", place: "Israel (Negev Desert)", title: "Slow-Release Drip & Fertigation", pioneer: "Simcha Blass & Netafim", story: "Water engineer Simcha Blass spotted one giant tree towering over neighbours in dry sand—digging down revealed a tiny leaking pipe dripping steadily onto its roots, proving slow drops outperform heavy floods.", result: "40–70% water savings, +25–35% fertilizer efficiency, +20–40% fruit/veg quality.", science: "Maintains steady root-zone moisture without oxygen-choking waterlogging or surface evaporation.", india: "High-ROI in horticulture, cotton & sugarcane via 45–55%+ PMKSY subsidy; use cheap gravity bucket-drip on <0.5 ha plots." },
+      { id: "hiware", root: 1, continent: "India", place: "Maharashtra, India", title: "Ridge-to-Valley + Gram Sabha Water Budget", pioneer: "Popatrao Pawar & Hiware Bazar", story: "In a 400 mm rain-shadow village where 90% of families had fled to slums, villagers converged 12 agencies to dig 40,000 contour trenches, banned irrigation borewells & sugarcane, and audited water every post-monsoon.", result: "Wells rose 97 → 294; zero crop collapse at −50% rain (2015); monthly per-capita income ₹830 → ₹30,000.", science: "Prevents Jevons Paradox by locking collective crop water demand strictly within measured aquifer recharge.", india: "Replicable in every rainfed Panchayat via MGNREGA watershed works paired with a Gram Sabha cropping agreement." },
+      { id: "loess", root: 1, continent: "Asia", place: "Loess Plateau, China", title: "Terracing & Steep-Slope Watershed Zoning", pioneer: "Chinese Villages & World Bank", story: "Across an eroded desert plateau the size of Belgium, communities terraced flat food benches, plugged gullies with check dams, ended open grazing on steep slopes, and reforested ridges.", result: "Restored 3.5M+ ha, doubled farmer incomes, slashed Yellow River silt, lifted 2.5M+ out of poverty.", science: "Separating steep ecological recharge ridges from flat food terraces permanently halts gully erosion.", india: "Direct blueprint for Chambal/Yamuna ravines, Himalayan slopes, and degraded Eastern/Western Ghats catchments." },
+
+      // ROOT 2 (4)
+      { id: "plantio", root: 2, continent: "Americas", place: "Paraná & Cerrado, Brazil", title: "Plantio Direto (No-Till + Straw Cover)", pioneer: "Herbert Bartz & EMBRAPA", story: "Watching tropical storms wash ploughed topsoil into rivers in 1972, Herbert Bartz stopped ploughing forever and drilled straight through straw. Mocked early on, it scaled across 33 million hectares.", result: "Soil erosion fell 97%; farm incomes jumped +57% within 5 years.", science: "Permanent residue absorbs raindrop impact, preserves fungal highways, and stops carbon oxidation.", india: "Proven as Punjab/Haryana Happy Seeder zero-till wheat (−37.3% diesel, −20% water, zero winter smog)." },
+      { id: "lowtunnel", root: 2, continent: "Asia", place: "China, Israel & Rajasthan (ICAR)", title: "Low-Tunnel Off-Season Micro-Farming", pioneer: "Chinese Smallholders & ICAR Bikaner", story: "Simple bamboo or GI wire hoops covered with thin UV film let smallholders plant gourds, melons, tomatoes, and chillies in cold winter months—arriving in mandis 30–45 days before open-field gluts.", result: "ICAR data: net return jumped ₹12,300/acre (open field, B:C 1.39) → ₹85,000/acre (low tunnel, B:C 2.53).", science: "Passive solar greenhouse effect raises soil & night air temp 5–8°C while shielding seedlings from frost and wind.", india: "Start with a 200 m² trial bed of bottle gourd, muskmelon, tomato, or nursery seedlings in North/West/Central India." },
+      { id: "gabe", root: 2, continent: "Americas", place: "North Dakota, USA", title: "5 Soil Health Principles & Living Cover", pioneer: "Gabe Brown", story: "After four years of hail and drought left him unable to afford chemicals or plough fuel, Gabe Brown adopted zero-till, multi-species cover crops, and cattle—turning dead dirt into deep black sponge.", result: "Water infiltration surged 16× (0.5 → 8 in/hr); soil organic matter rose 1.9% → 6.1%.", science: "Continuous living roots pump sugar exudates that build glomalin-glued soil aggregates.", india: "Mirrors APCNF's 365-Day Green Cover & Pre-Monsoon Dry Sowing (PMDS) and North India's Summer Moong cover window." },
+      { id: "solarize", root: 2, continent: "Middle East", place: "Israel & Global Agronomy", title: "Soil Solarization + ₹0 Stale Seedbed Weed Flush", pioneer: "Prof. Jaacov Katan & ICAR", story: "Sealing moist nursery beds under clear plastic for 3–4 hot May weeks kills soil wilts & nematodes; on main fields, pre-wetting soil so the first weed flush sprouts and scraping once BEFORE sowing cuts weeds without herbicides.", result: "70–95% nursery wilt suppression; 50–70% lower seasonal weeding/herbicide bills via stale seedbed.", science: "Moist solar heat (50–55°C) kills pathogens; stale seedbeds deplete the topsoil weed seedbank before crops emerge.", india: "Combine May nursery solarization with pre-sowing stale seedbed scraping in DSR, cotton, pulses, and vegetables." },
+
+      // ROOT 3 (5)
+      { id: "lcc", root: 3, continent: "Asia", place: "Philippines → India (IRRI / PAU)", title: "₹100 Leaf Color Chart (Real-Time Nitrogen)", pioneer: "IRRI & Indian Agricultural Universities", story: "Because smallholders cannot afford ₹1.5L optical chlorophyll meters, IRRI engineered a ₹100 plastic strip with calibrated shades of green—letting any farmer read exact crop nitrogen hunger straight off the leaf.", result: "Cuts urea waste 15–30% in Indian rice, wheat & maize with equal or higher yields and fewer sucking pests.", science: "Leaf chlorophyll density tracks nitrogen status accurately; dosing only below Shade 4 stops leaching & volatilization.", india: "The #1 ₹100 tool for India's 70M+ ha of wheat and paddy where bottle-cap hand-dosing is impractical." },
+      { id: "udp", root: 3, continent: "Asia", place: "Bangladesh & South Asia (IFDC)", title: "Urea Deep Placement (UDP Briquettes in Paddy)", pioneer: "IFDC & 2M+ Bangladeshi Rice Farmers", story: "Broadcasting prilled urea into flooded rice water loses up to 60% as ammonia gas and runoff. Pushing one marble-sized urea briquette 7–10 cm below mud between 4 hills keeps nitrogen locked inside the root zone.", result: "Cuts urea needed 30–40% while lifting lowland rice yields +15–20% across 2M+ South Asian farms.", science: "Anaerobic subsurface placement prevents nitrification-denitrification and surface volatilization losses.", india: "Massive high-ROI fit for transplanted lowland paddy in Assam, West Bengal, Bihar, Odisha, UP, and Coastal Andhra." },
+      { id: "microdose", root: 3, continent: "Africa", place: "Sahel, Ethiopia & Zimbabwe", title: "Bottle-Cap Fertilizer Microdosing", pioneer: "ICRISAT & African Smallholders", story: "Instead of wasting scarce fertilizer by broadcasting it to weeds across dryland acres, ICRISAT and farmers placed one soda bottle-cap (6 g) of fertilizer 5 cm beside each planted seed.", result: "Saved 25–50% N/P fertilizer while lifting sorghum/millet yields +15–28% (36% IRR across 170,000 homes).", science: "Root-zone placement accelerates early root vigor to capture deep subsoil moisture before weeds compete.", india: "Immediate high-ROI step for India's spaced rainfed crops (millet, sorghum, maize, cotton, vegetables, orchards)." },
+      { id: "terrapreta", root: 3, continent: "Americas", place: "Amazon Basin (2,500+ yrs)", title: "Terra Preta (Charged Biochar + Microbes)", pioneer: "Ancient Amazonian Indigenous Farmers", story: "In leached acidic rainforest clay, ancient Amazonians smoldered woody waste in low-oxygen pits and mixed charcoal with dung, ash, and microbes—forging black earth still fertile 2,000 years later.", result: "3× higher organic matter, N & P and 70× more charcoal than adjacent jungle soil.", science: "Porous charcoal provides permanent cation-exchange capacity and microbial shelter against monsoon leaching.", india: "Convert cotton/tur stalks and coconut husks into pit biochar—always soak 14 days in dung/urine slurry first." },
+      { id: "knf_apcnf", root: 3, continent: "Asia", place: "South Korea & Andhra Pradesh", title: "Forest Microbes (KNF IMO) & APCNF Natural Farming", pioneer: "Master Cho Han-Kyu & RySS Women SHGs", story: "Cho Han-Kyu trapped local forest microbes on cooked rice rather than buying lab cultures; Andhra's RySS scaled living-soil natural farming via embedded farmer mentors and women SHGs across 800,000+ smallholders.", result: "APCNF saved ₹11,268/ha on chemicals, −22.8% paid-out cost, +62% net value/ha (GIST Impact / CCEs).", science: "Native saprophytes accelerate nutrient cycling—must be paired with compost/manure/pH fixes for long-term mass balance.", india: "Collect IMO from local sacred groves/banyan litter; pair with Jeevamrut, kitchen pH fixes, and 25% pilot transition." },
+
+      // ROOT 4 (5)
+      { id: "ragdoll_prime", root: 4, continent: "Asia", place: "India, Nepal & Global Drylands", title: "₹0 Rag-Doll Seed Test + Overnight Seed Priming", pioneer: "UC Davis, ICRISAT & Indian Farmers", story: "Rolling 100 seeds in a wet cotton rag 4 days early catches dead seed before sowing; then soaking maize, chickpea, or millet overnight in plain water wakes germination before dry topsoil crusts.", result: "Eliminates dead-seed wipeouts; priming boosts emergence speed +22% and yield +21% (+22–28% under stress).", science: "Completes Phase I–II seed hydration biochemistry before soil moisture evaporates.", india: "Literally ₹0 cash, low labour, 1-season payback—the #1 starting habit for every Indian farmer and tenant." },
+      { id: "rotation_trellis", root: 4, continent: "Europe", place: "Global Agronomy & Asian Horticulture", title: "Strict Family Rotation + Vertical Bamboo Trellising", pioneer: "Multi-Century European/Asian Smallholders", story: "Rotating crop families breaks soil-borne wilt cycles for ₹0; lifting vining gourds, beans, and tomatoes off monsoon mud onto bamboo/wire trellises keeps fruit clean, sunlit, and easy to pick.", result: "Slashes soil-borne fungal wilt without chemicals; vertical trellising cuts monsoon veg rot 50–70% & doubles yield/m².", science: "Botanical family rotation starves host-specific pathogens; vertical canopies double leaf light interception & airflow.", india: "Never repeat tomato/brinjal/chilli/potato on the same bed; stake monsoon cucurbits & tomatoes with local bamboo." },
+      { id: "sri", root: 4, continent: "Africa", place: "Madagascar → India", title: "System of Rice & Millet Intensification (SRI/SMI)", pioneer: "Fr. Henri de Laulanié (1983) & Odisha OMM", story: "During a 1983 Madagascar drought, transplanting tiny 15-day rice seedlings singly to stretch scarce seed accidentally produced 50–80 tillers per plant—later doubling ragi yields across Odisha.", result: "70–85% less seed, 25–40% less water, +20–50% yield; Odisha ragi doubled (5.79 → 12.72 q/ha).", science: "Young single seedlings in aerated moist soil with wide square spacing maximize genetic tillering potential.", india: "High-ROI on well-drained paddy/ragi/sugarcane (SSI) plots with a ₹1,500 cono-weeder; skip in deep floods." },
+      { id: "milpa", root: 4, continent: "Americas", place: "Mesoamerica & Telangana, India", title: "Milpa (Three Sisters) & DDS Panta Polyculture", pioneer: "Mayan/Aztec Farmers & 5,000 Zaheerabad Women", story: "Mesoamericans stacked maize, climbing beans, and squash for 3,000 years; Telangana's DDS women sanghams preserved 80+ heirloom seeds to sow 8–12 rainfed crops per acre with zero borewells or debt.", result: "Higher combined calories/protein per acre than monocrops; drought-proof nutrition & zero annual seed debt.", science: "Multi-layer canopy light capture, complementary root depths, legume N-fixation, and living shade weed control.", india: "Ensure every rainfed acre carries a legume companion (4:2 Soybean+Tur, Bajra+Mothbean, Maize+Cowpea+Pumpkin)." },
+      { id: "grafting", root: 4, continent: "Asia", place: "Taiwan (AVRDC), Japan & IIHR India", title: "Wild-Rootstock Vegetable Grafting & Pro-Trays", pioneer: "World Vegetable Center (AVRDC) & ICAR-IIHR", story: "When bacterial wilt and monsoon flooding wiped out tomato and brinjal fields across tropical Asia, scientists grafted high-yielding scions onto hardy wild brinjal (Solanum torvum) rootstocks raised in pro-trays.", result: "Near-100% survival in wilt-infested wet soils where chemical fungicides fail; +30–60% marketable veg yield.", science: "Wild rootstocks resist Ralstonia wilt, root-knot nematodes, and waterlogged root hypoxia without harming fruit quality.", india: "Available via IIHR/KVK nurseries and village SHG pro-tray units—game-changing for monsoon tomato & brinjal growers." },
+
+      // ROOT 5 (4)
+      { id: "bees", root: 5, continent: "India", place: "ICAR Pan-India & Global Apiculture", title: "Honeybee Pollination + ₹50 Fruit-Fly Bottle Traps", pioneer: "ICAR AICRP Honeybees & IPM Teams", story: "Placing 2–4 hives beside flowering mustard, coriander, pulses, or orchards turns blossoms into fuller pods—while ₹50 methyl eugenol/cue-lure bottle traps protect mangoes, guavas, and gourds without sprays that kill bees.", result: "Bees lifted yields +17–35% (+₹8,260–₹21,900/ha extra income); ₹50 fruit-fly traps save 30–80% of fruit/gourds.", science: "Insect cross-pollination boosts seed/fruit set on zero extra land; male-annihilation lure traps collapse fruit-fly breeding.", india: "Stop morning flowering sprays, host migratory beehives free, and hang ₹50 cue-lure traps in every orchard & gourd plot." },
+      { id: "fmnr", root: 5, continent: "Africa", place: "Niger (Sahel)", title: "Farmer-Managed Natural Regeneration (FMNR)", pioneer: "Tony Rinaudo ('The Forest Maker')", story: "After costly nursery saplings kept dying in Niger's desert, Tony Rinaudo realized 'useless bushes' farmers slashed yearly were an underground forest of living stumps. Pruning 2–3 shoots regrew forests free.", result: "200 million trees regrown on 5M ha; +500,000 t/yr extra grain; 30–45 kg/day fodder at near-zero cost.", science: "Established deep native root systems deliver >90% survival vs <20% for planted saplings, cooling soil & wind.", india: "Zero-cash goldmine for owned dryland bunds (Khejri, Neem, Babool, Gliricidia) across Rajasthan, Bundelkhand & Deccan." },
+      { id: "pushpull", root: 5, continent: "Africa", place: "Kenya & ICAR-NCIPM India", title: "Push–Pull Ecological Pest Control", pioneer: "Prof. Zeyaur Khan (ICIPE) & ICAR-NCIPM", story: "East African farmers stopped stemborers without poison by intercropping repellent legumes and ringing fields with sticky trap Napier grass that doubled as dairy fodder.", result: "2–3× maize yields in East Africa; Indian IPM trap-border suites cut pesticide bills 40–70%.", science: "Plant volatiles repel pests from the main crop ('Push') while sacrificial borders lure and trap them ('Pull').", india: "Use locally available Indian seeds tomorrow: Marigold, Castor, Maize/Napier borders + Coriander/Cowpea intercrops." },
+      { id: "aigamo", root: 5, continent: "Asia", place: "Japan, NE India & Bahia Brazil", title: "Aigamo Ducks, Apatani Fish & Syntropic Agroforestry", pioneer: "Takao Furuno, Apatani Tribe & Ernst Götsch", story: "Japanese farmers released ducklings to weed and fertilize rice; Arunachal's Apatanis piped mountain streams into terraced rice-fish-millet basins; in humid Brazil, Ernst Götsch pruned multi-tier cocoa food forests.", result: "Zero paddy pesticides + double income (rice + duck/fish); humid multi-tier canopies buffer heat 3–5°C.", science: "Trophic pest predation + nutrient recycling + dense transpiration-driven microclimate cooling.", india: "Rice-fish-duck-Azolla fits Assam, WB, Odisha, Bihar, Kerala & NE; multi-tier food forests fit humid Ghats/Araku." },
+
+      // ROOT 6 (5 — COMPLETE POST-HARVEST + DAIRY + ZERO-WASTE!)
+      { id: "dawn_crates", root: 6, continent: "Asia", place: "Global Post-Harvest Standard (FAO / ICAR)", title: "₹0 Dawn Harvesting + Ventilated Plastic Crates", pioneer: "FAO & ICAR-CIPHET Post-Harvest Teams", story: "Picking tomatoes, okra, leafy greens, and fruit in 38°C afternoon heat and stuffing them into heavy gunny sacks cooks and crushes produce before it even leaves the village.", result: "Harvesting at 5–8 AM into rigid ventilated crates cuts bruising & spoilage 30–50% immediately.", science: "Cool dawn harvest slashes crop respiration heat 2–3×; rigid crates eliminate compression bruising that triggers fungal rot.", india: "Literally ₹0 to shift harvest timing to dawn; shared FPO/mandi plastic crates pay for themselves in 2–3 trips." },
+      { id: "pics", root: 6, continent: "Africa", place: "Purdue Univ. → Global Smallholders", title: "PICS Triple-Layer Hermetic Grain Bags", pioneer: "Prof. Larry Murdock (Purdue)", story: "Smallholders lose 10–30% of stored grain to weevils—or dump harvest Day-1 at rock-bottom prices. Sealing dry grain inside two airtight liners + one woven sack suffocates weevils with zero chemicals.", result: "Weevils stayed flat for 170 days (vs 199/kg in normal sacks); unlocks +30–60% off-season prices.", science: "Insect respiration inside an O₂-barrier liner drops oxygen below 5%, halting insect reproduction organically.", india: "Start with 2–4 reusable bags (₹400–₹800) for your family's seed & pulses; expand to full harvest from Season-1 gains." },
+      { id: "zecc", root: 6, continent: "India", place: "ICAR-IARI New Delhi → Rural India", title: "Zero-Energy Cool Chamber (ZECC)", pioneer: "Dr. Susanta Roy & ICAR Teams", story: "Without reliable village power, vegetable farmers lose 15–25% of tomatoes and greens to 40°C heat in 48 hours. ICAR built a double-brick chamber filled with wet river sand & jute lid needing zero electricity.", result: "Drops inside temp 10–15°C; extends tomato shelf life +8 days, peppers +11 days, leafy greens +5 days.", science: "Evaporative cooling from moist sand walls absorbs latent heat while holding ~90% humidity to stop shriveling.", india: "Costs ~₹3,500–5,000 on-farm or at a village collection point—eliminates evening mandi distress dumping immediately." },
+      { id: "dairy_roi", root: 6, continent: "India", place: "NDDB & ICAR (Bihar / Gujarat / Pan-India)", title: "Precision Dairy (Free Vaccines + Deworming + Chaff + 50g Mineral Mix)", pioneer: "NDDB Anand & ICAR Animal Nutrition Teams", story: "Over 70 million Indian farm families depend on 1–3 dairy/goat animals, yet lose ₹50k animals to preventable diseases, waste 30–40% unchopped fodder, and suffer summer milk crashes from trace-mineral hunger.", result: "Free state FMD/PPR/HS vaccines + ₹30 deworming prevent herd loss; 50 g/day mineral mix adds +0.49 L/day milk & +₹15.8/day/cow net profit; chaff-cutting saves 30–40% fodder.", science: "Preventive immunity protects capital; chopping boosts intake; Ca/P/Zn/Cu minerals restore milk & conception; bag silage bridges summer.", india: "Highest-ROI daily cash upgrade for every mixed Indian farm: free state vet vaccines, ₹100/kg mineral mix, shared chaff cutter & silage bags." },
+      { id: "zabo", root: 6, continent: "India", place: "Nagaland, Kerala & Aztec Mexico", title: "Zabo Gravity Loops, Pokkali Prawn & Chinampas", pioneer: "Chakhesang Nagas, Kuttanad & Aztecs", story: "Nagaland's Zabo routes hilltop pond water straight through cattle/pig pens to carry free liquid manure into rice-fish terraces; Kerala's Pokkali rotates salt-tolerant rice with tidal prawns; Aztecs dredged canal silt for 7 crops/yr.", result: "100% circular fertility, zero external chemical spend, year-round multi-product protein & cash.", science: "Gravity-driven capture converts animal & aquatic waste into liquid fertilizer before volatile ammonia escapes.", india: "Every smallholder with 1–2 cows/goats can apply Zabo tomorrow: dig a simple shed-wash trench into shaded compost or banana/fodder." },
+
+      // ROOT 7 (2)
+      { id: "sahyadri", root: 7, continent: "India", place: "Nashik & Araku Valley, India", title: "Farmer-Owned FPOs & Terroir Branding", pioneer: "Vilas Shinde (Sahyadri) & Araku Tribal MACS", story: "After 2010 European residue rejections bankrupted Nashik grape growers, 10 farmers built their own cold-chain company; in Araku, Adivasis planted 47–51M trees and mapped 6 terroirs to sell 90-point specialty coffee in Paris.", result: "Sahyadri: ₹1,000+ Cr turnover (15,000+ farmers). Araku: 80,000+ tribal farmers, ~1,300 rupee-millionaires.", science: "Collective farmer equity overcomes <1 ha fragmentation, funding testing labs, cold storage, and zero-waste Grade-B processing.", india: "Start with a 15-farmer bulk-buying/grading circle; scale into a 300-farmer FPO with SFAC/NABARD + Agri Infra Fund." },
+      { id: "omm", root: 7, continent: "India", place: "Koraput & 19+ Districts, Odisha", title: "Odisha Millets Mission (Processing + Assured Demand)", pioneer: "Tribal Women SHGs, WASSAN & Govt. of Odisha", story: "Odisha realized farmers quit millets because manual pounding broke women's backs and markets only bought rice. OMM combined SMI training, women-run block dehullers, 103 conserved landraces, and MSP procurement for PDS.", result: "Millet yields doubled (5.79 → 12.72 q/ha); household millet gross value tripled (₹3,957 → ₹12,486).", science: "Supply-side agronomy fails without removing processing drudgery and locking in predictable demand.", india: "The gold standard for scaling climate-smart crops: pair CHC dehullers/dal mills with institutional & local market pull." }
+    ];
+
+    // =========================================================================
+    // STATE & PERSISTENCE (SAFE LOCALSTORAGE)
+    // =========================================================================
+    const STORE_KEY = 'mula_v3_completed_steps';
+    const ECO_KEY = 'mula_v3_eco';
+    const completedSteps = new Set();
+    let currentEco = 'dryland';
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORE_KEY) || '[]');
+      if (Array.isArray(saved)) saved.forEach(k => completedSteps.add(k));
+      const savedEco = localStorage.getItem(ECO_KEY);
+      if (['dryland', 'plains', 'wet_hill'].includes(savedEco)) currentEco = savedEco;
+    } catch (e) {}
+
+    function saveProgress() {
+      try {
+        localStorage.setItem(STORE_KEY, JSON.stringify([...completedSteps]));
+        localStorage.setItem(ECO_KEY, currentEco);
+      } catch (e) {}
+    }
+
+    const ECO_LABELS = {
+      dryland: "Rainfed Dryland (Deccan / Rajasthan / Plateau)",
+      plains: "Irrigated Plains (Punjab / Haryana / UP / Sugarcane)",
+      wet_hill: "Humid Delta / Floodplain / Hills (East / NE / Kerala)"
+    };
+
+    function setEcology(eco) {
+      currentEco = eco;
+      saveProgress();
+      document.querySelectorAll('#global-eco-bar button').forEach(b => {
+        const on = b.dataset.eco === eco;
+        b.classList.toggle('chip-on', on);
+        b.classList.toggle('chip-off', !on);
+      });
+      const sel = document.getElementById('st-farm');
+      if (sel && sel.value !== eco) sel.value = eco;
+      renderRootDetail();
+      renderStartEngine();
+    }
+
+    document.querySelectorAll('#global-eco-bar button').forEach(b => {
+      b.addEventListener('click', () => setEcology(b.dataset.eco));
+    });
+
+    // =========================================================================
+    // VIEW SWITCHING
+    // =========================================================================
+    document.querySelectorAll('.nav-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const v = btn.dataset.view;
+        document.querySelectorAll('.nav-pill').forEach(b => b.setAttribute('aria-selected', b === btn ? 'true' : 'false'));
+        document.querySelectorAll('.view-panel').forEach(p => p.classList.toggle('hidden', p.id !== 'view-' + v));
+      });
+    });
+
+    // =========================================================================
+    // VIEW 1: ENMESHED 7-ROOT WHEEL + ECOLOGY-SYNCED DETAIL
+    // =========================================================================
+    let activeRootNum = 1;
+
+    function shortenLine(x1, y1, x2, y2, padStart, padEnd) {
+      const dx = x2 - x1, dy = y2 - y1;
+      const dist = Math.hypot(dx, dy) || 1;
+      return {
+        x1: x1 + (dx / dist) * padStart,
+        y1: y1 + (dy / dist) * padStart,
+        x2: x2 - (dx / dist) * padEnd,
+        y2: y2 - (dy / dist) * padEnd
+      };
+    }
+
+    function renderRootWheel() {
+      const cx = 185, cy = 178, R = 122;
+      const pts = ROOTS.map((r, i) => {
+        const ang = (-Math.PI / 2) + (i * 2 * Math.PI / 7);
+        return { ...r, x: cx + R * Math.cos(ang), y: cy + R * Math.sin(ang) };
+      });
+      const active = pts.find(p => p.num === activeRootNum);
+
+      let edgesSvg = '';
+      const ringD = pts.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' ') + ' Z';
+      edgesSvg += `<path d="${ringD}" fill="none" stroke="var(--border)" stroke-width="1.2" opacity="0.6" />`;
+
+      active.fedBy.forEach(srcNum => {
+        const s = pts.find(p => p.num === srcNum);
+        const seg = shortenLine(s.x, s.y, active.x, active.y, 28, 36);
+        edgesSvg += `<line x1="${seg.x1}" y1="${seg.y1}" x2="${seg.x2}" y2="${seg.y2}" stroke="var(--muted-foreground)" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#arr-muted)" opacity="0.75" />`;
+      });
+
+      active.feeds.forEach(targetNum => {
+        const t = pts.find(p => p.num === targetNum);
+        const seg = shortenLine(active.x, active.y, t.x, t.y, 34, 30);
+        edgesSvg += `<line x1="${seg.x1}" y1="${seg.y1}" x2="${seg.x2}" y2="${seg.y2}" stroke="${active.color}" stroke-width="2.6" marker-end="url(#arr-active)" opacity="0.95" />`;
+      });
+
+      const nodesSvg = pts.map(p => {
+        const isSel = p.num === activeRootNum;
+        const isRel = active.feeds.includes(p.num) || active.fedBy.includes(p.num);
+        const op = isSel || isRel ? 1 : 0.45;
+        return `
+          <g class="node-group" data-rnum="${p.num}" tabindex="0" role="button" aria-label="Root ${p.num}: ${p.title}" opacity="${op}">
+            <circle class="node-ring" cx="${p.x}" cy="${p.y}" r="${isSel ? 35 : 29}" fill="${isSel ? p.color : 'var(--content)'}" stroke="${p.color}" stroke-width="${isSel ? 3 : 2}" />
+            <text x="${p.x}" y="${p.y - 3}" text-anchor="middle" font-size="12" font-weight="800" fill="${isSel ? 'var(--background)' : p.color}">${p.num}</text>
+            <text x="${p.x}" y="${p.y + 12}" text-anchor="middle" font-size="10.5" font-weight="700" fill="${isSel ? 'var(--background)' : 'var(--foreground)'}">${p.short}</text>
+          </g>
+        `;
+      }).join('');
+
+      document.getElementById('root-wheel').innerHTML = `
+        <svg viewBox="0 0 370 356" class="w-full max-w-[370px] mx-auto h-auto" role="img" aria-label="Enmeshed 7-Root Farming Wheel">
+          <defs>
+            <marker id="arr-active" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="${active.color}" />
+            </marker>
+            <marker id="arr-muted" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--muted-foreground)" />
+            </marker>
+          </defs>
+          ${edgesSvg}
+          <circle cx="${cx}" cy="${cy}" r="38" fill="var(--card)" stroke="var(--border)" stroke-width="1.5" />
+          <text x="${cx}" y="${cy - 3}" text-anchor="middle" font-size="12.5" font-weight="800" fill="var(--foreground)">MŪLA</text>
+          <text x="${cx}" y="${cy + 12}" text-anchor="middle" font-size="10.5" fill="var(--muted-foreground)">Stop Leaks</text>
+          ${nodesSvg}
+        </svg>
+      `;
+
+      document.querySelectorAll('#root-wheel .node-group').forEach(g => {
+        const pick = () => {
+          activeRootNum = parseInt(g.dataset.rnum, 10);
+          renderRootWheel();
+          renderRootDetail();
+        };
+        g.addEventListener('click', pick);
+        g.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); }
+        });
+      });
+
+      const fedByNames = active.fedBy.map(n => ROOTS[n - 1].short).join(', ');
+      const feedsNames = active.feeds.map(n => ROOTS[n - 1].short).join(', ');
+      document.getElementById('root-link-summary').innerHTML = `
+        <div class="flex flex-wrap gap-x-4 gap-y-1">
+          <span><strong class="text-[var(--muted-foreground)]">Fed by:</strong> <span class="text-[var(--foreground)] font-semibold">${fedByNames}</span></span>
+          <span><strong style="color:${active.color}">Unlocks:</strong> <span class="text-[var(--foreground)] font-semibold">${feedsNames}</span></span>
+        </div>
+        <p class="text-[var(--muted-foreground)] leading-relaxed">${active.linkNote}</p>
+      `;
+
+      document.getElementById('root-pills').innerHTML = ROOTS.map(r => `
+        <button data-rp="${r.num}" class="py-1.5 rounded-lg border text-xs font-bold cursor-pointer transition ${r.num === activeRootNum ? 'chip-on' : 'chip-off'}">${r.num}</button>
+      `).join('');
+      document.querySelectorAll('[data-rp]').forEach(b => {
+        b.addEventListener('click', () => {
+          activeRootNum = parseInt(b.dataset.rp, 10);
+          renderRootWheel();
+          renderRootDetail();
+        });
+      });
+    }
+
+    function renderRootDetail() {
+      const r = ROOTS.find(x => x.num === activeRootNum);
+      document.getElementById('root-detail').innerHTML = `
+        <div class="flex flex-wrap items-start justify-between gap-2 pb-3 border-b border-[var(--card-border)]">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm shrink-0" style="background:${r.color}; color:var(--background);">0${r.num}</span>
+            <div>
+              <h3 class="text-lg font-bold text-[var(--foreground)]">${r.title}</h3>
+              <p class="text-xs text-[var(--muted-foreground)]">Leak Stopped: ${r.leakStopped}</p>
+            </div>
+          </div>
+          <span class="px-2.5 py-1 rounded-full bg-[var(--secondary)] text-[var(--secondary-foreground)] border border-[var(--border)] text-xs font-semibold">
+            Showing: ${ECO_LABELS[currentEco].split(' (')[0]}
+          </span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-[var(--content)] border-l-4" style="border-left-color:${r.color}">
+          <div class="text-xs font-bold uppercase tracking-wider text-[var(--muted-foreground)]">Plain Farmer Law</div>
+          <p class="text-sm sm:text-base font-semibold text-[var(--foreground)] mt-1 leading-snug">“${r.law}”</p>
+        </div>
+
+        <div class="space-y-2.5">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="text-xs font-bold uppercase tracking-wider text-[var(--muted-foreground)]">Highest-ROI Ladder (Tailored to Your Selected Ecology)</div>
+          </div>
+          <div class="grid grid-cols-1 gap-2.5">
+            ${r.rungs.map((rg, idx) => `
+              <div class="p-3.5 rounded-xl bg-[var(--content)] border border-[var(--card-border)] space-y-1.5">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <div class="flex flex-wrap items-center gap-1.5">
+                    <span class="px-2 py-0.5 rounded-md text-xs font-bold" style="background:${idx === 0 ? 'var(--success)' : idx === 1 ? 'var(--chart-1)' : 'var(--primary)'}; color:var(--background);">${rg.tag}</span>
+                    <span class="px-2 py-0.5 rounded-md text-xs bg-[var(--card)] border border-[var(--border)] text-[var(--muted-foreground)]">${rg.labour}</span>
+                    ${rg.tenantSafe ? `<span class="px-2 py-0.5 rounded-md text-xs bg-[var(--card)] border border-[var(--border)] text-[var(--success)]">Tenant-Safe</span>` : `<span class="px-2 py-0.5 rounded-md text-xs bg-[var(--card)] border border-[var(--border)] text-[var(--warning)]">Owner / Long Lease</span>`}
+                  </div>
+                  <span class="text-xs font-mono text-[var(--muted-foreground)]">Payback: ${rg.payback}</span>
+                </div>
+                <div class="font-bold text-xs sm:text-sm text-[var(--foreground)] pt-0.5">${rg.title}</div>
+                <p class="text-xs text-[var(--foreground)] leading-relaxed">${rg.how[currentEco]}</p>
+                <div class="text-xs text-[var(--success)] font-medium">ROI: ${rg.roi}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <details class="group rounded-xl bg-[var(--content)] border border-[var(--card-border)] overflow-hidden">
+          <summary class="p-3.5 cursor-pointer flex items-center justify-between text-xs font-bold text-[var(--primary)] select-none">
+            <span>Expand: Global Anecdotal Proof, Deep Science &amp; Honest Caveats</span>
+            <svg class="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="px-4 pb-4 pt-2 border-t border-[var(--card-border)] space-y-3 text-xs">
+            <div class="space-y-1.5">
+              <div class="font-bold text-[var(--foreground)]">Verified Global + Indian Proofs</div>
+              <ul class="space-y-1.5 text-[var(--muted-foreground)] leading-relaxed">
+                ${r.proofs.map(p => `<li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style="background:${r.color}"></span><span>${p}</span></li>`).join('')}
+              </ul>
+            </div>
+            <div class="p-3 rounded-lg bg-[var(--card)] border border-[var(--card-border)]">
+              <div class="font-bold text-[var(--chart-2)] mb-1">Why the Science Works</div>
+              <p class="text-[var(--muted-foreground)] leading-relaxed">${r.science}</p>
+            </div>
+            <div class="p-3 rounded-lg bg-[var(--card)] border border-[var(--error)]">
+              <div class="font-bold text-[var(--error)] mb-1">Zero-Wastage Warning</div>
+              <p class="text-[var(--foreground)] leading-relaxed">${r.watchOut}</p>
+            </div>
+          </div>
+        </details>
+      `;
+    }
+
+    // =========================================================================
+    // VIEW 2: CONTEXT + TENANT + AUTO-ADVANCING HIGHEST-ROI ENGINE + LEDGER
+    // =========================================================================
+    const PAIN_PRIORITY = {
+      water_short: [1, 4, 2, 5, 3, 6, 7],
+      input_debt:  [3, 4, 2, 6, 7, 5, 1],
+      pest_weed:   [5, 4, 2, 3, 6, 1, 7],
+      soil_dead:   [2, 3, 1, 6, 4, 5, 7],
+      low_price:   [6, 7, 2, 4, 5, 3, 1],
+      water_excess:[1, 4, 5, 2, 6, 3, 7]
+    };
+
+    function renderStartEngine() {
+      const farm = currentEco;
+      const pain = document.getElementById('st-pain').value;
+      const budget = document.getElementById('st-budget').value;
+      const tenantOnly = document.getElementById('st-tenant').checked;
+
+      const order = PAIN_PRIORITY[pain];
+      const maxBudgetIdx = budget === 'zero' ? 0 : budget === 'low' ? 1 : 2;
+
+      const picks = [];
+      for (const rNum of order) {
+        if (picks.length >= 3) break;
+        const root = ROOTS.find(r => r.num === rNum);
+        for (let i = 0; i <= maxBudgetIdx; i++) {
+          const rg = root.rungs[i];
+          const key = `${rNum}-${i}`;
+          if (tenantOnly && !rg.tenantSafe) continue;
+          if (!completedSteps.has(key)) {
+            picks.push({ root, rung: rg, rungIdx: i, key });
+            break;
+          }
+        }
+      }
+
+      document.getElementById('done-counter').textContent = `${completedSteps.size} / 21`;
+
+      const resultsEl = document.getElementById('st-results');
+      if (!picks.length) {
+        resultsEl.innerHTML = `
+          <div class="p-6 rounded-2xl bg-[var(--secondary)] border border-[var(--success)] text-center space-y-2">
+            <div class="text-base font-bold text-[var(--foreground)]">All Matching Steps in This Tier Are Complete!</div>
+            <p class="text-xs text-[var(--muted-foreground)]">Raise your budget tier (e.g., to Shared CHC / Compounding) or uncheck the Tenant filter to unlock your next compounding rung.</p>
+          </div>
+        `;
+      } else {
+        resultsEl.innerHTML = `
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            ${picks.map((pk, idx) => {
+              const nextRoot = ROOTS.find(r => r.num === pk.root.feeds[0]);
+              return `
+                <div class="bg-[var(--card)] border-2 border-[var(--border)] rounded-2xl p-5 flex flex-col justify-between gap-4">
+                  <div class="space-y-3">
+                    <div class="flex items-center justify-between gap-2">
+                      <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-[var(--primary)] text-[var(--primary-foreground)]">Next Best #${idx + 1}</span>
+                      <span class="text-xs font-semibold" style="color:${pk.root.color}">Root ${pk.root.num} · ${pk.root.short}</span>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5 text-xs">
+                      <span class="px-2 py-0.5 rounded bg-[var(--content)] border border-[var(--card-border)] font-semibold text-[var(--foreground)]">${pk.rung.tag}</span>
+                      <span class="px-2 py-0.5 rounded bg-[var(--content)] border border-[var(--card-border)] text-[var(--muted-foreground)]">${pk.rung.labour}</span>
+                      <span class="px-2 py-0.5 rounded bg-[var(--content)] border border-[var(--card-border)] font-mono text-[var(--muted-foreground)]">${pk.rung.payback}</span>
+                    </div>
+                    <h3 class="text-base font-bold text-[var(--foreground)] leading-snug">${pk.rung.title}</h3>
+                    <p class="text-xs text-[var(--foreground)] leading-relaxed">${pk.rung.how[farm]}</p>
+                    <div class="p-3 rounded-xl bg-[var(--content)] border border-[var(--card-border)] text-xs space-y-1">
+                      <div class="font-bold text-[var(--success)]">Expected ROI</div>
+                      <div class="text-[var(--muted-foreground)]">${pk.rung.roi}</div>
+                    </div>
+                  </div>
+                  <div class="pt-3 border-t border-[var(--card-border)] flex items-center justify-between gap-2">
+                    <span class="text-xs text-[var(--muted-foreground)]">Unlocks → <strong class="text-[var(--foreground)]">Root ${nextRoot.num} (${nextRoot.short})</strong></span>
+                    <button data-done="${pk.key}" class="px-3 py-1.5 rounded-lg bg-[var(--content)] border border-[var(--border)] hover:border-[var(--success)] hover:text-[var(--success)] text-xs font-semibold cursor-pointer transition">
+                      ✓ Mark Done
+                    </button>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        `;
+      }
+
+      document.getElementById('full-ladder').innerHTML = ROOTS.map(r => `
+        <div class="p-4 rounded-xl bg-[var(--content)] border border-[var(--card-border)] space-y-2.5">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-md flex items-center justify-center font-bold text-xs" style="background:${r.color}; color:var(--background);">${r.num}</span>
+            <span class="font-bold text-xs sm:text-sm text-[var(--foreground)]">${r.title}</span>
+          </div>
+          <div class="space-y-1.5">
+            ${r.rungs.map((rg, i) => {
+              const key = `${r.num}-${i}`;
+              const checked = completedSteps.has(key);
+              const dimmed = tenantOnly && !rg.tenantSafe;
+              return `
+                <label class="flex items-start gap-2.5 p-2 rounded-lg bg-[var(--card)] border border-[var(--card-border)] cursor-pointer hover:border-[var(--primary)] transition text-xs ${dimmed ? 'opacity-50' : ''}">
+                  <input type="checkbox" data-chk="${key}" ${checked ? 'checked' : ''} class="mt-0.5 accent-[var(--primary)]" />
+                  <span class="${checked ? 'line-through text-[var(--muted-foreground)]' : 'text-[var(--foreground)]'}">
+                    <strong class="text-[var(--primary)]">${rg.tag}:</strong> ${rg.title}
+                    ${!rg.tenantSafe ? ' <em class="text-[var(--warning)]">(Multi-yr)</em>' : ''}
+                  </span>
+                </label>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      `).join('');
+
+      document.querySelectorAll('[data-done]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          completedSteps.add(btn.dataset.done);
+          saveProgress();
+          renderStartEngine();
+        });
+      });
+      document.querySelectorAll('[data-chk]').forEach(cb => {
+        cb.addEventListener('change', () => {
+          const k = cb.dataset.chk;
+          if (cb.checked) completedSteps.add(k); else completedSteps.delete(k);
+          saveProgress();
+          renderStartEngine();
+        });
+      });
+    }
+
+    document.getElementById('st-farm').addEventListener('change', e => setEcology(e.target.value));
+    ['st-pain', 'st-budget', 'st-tenant'].forEach(id => {
+      document.getElementById(id).addEventListener('change', renderStartEngine);
+    });
+    document.getElementById('reset-checks').addEventListener('click', () => {
+      completedSteps.clear();
+      saveProgress();
+      renderStartEngine();
+    });
+
+    // 5-Line Farm Profit Ledger (Honest A2 Cash + A2+FL After-Labour Math)
+    function fmtINR(n) {
+      const sign = n < 0 ? '−' : '';
+      return sign + '₹' + Math.round(Math.abs(n)).toLocaleString('en-IN');
+    }
+    function renderLedger() {
+      const wage  = Math.max(0, parseFloat(document.getElementById('l-wage').value) || 0);
+      const oCost = Math.max(0, parseFloat(document.getElementById('l-old-cost').value) || 0);
+      const oLab  = Math.max(0, parseFloat(document.getElementById('l-old-lab').value) || 0);
+      const oWat  = Math.max(1, parseFloat(document.getElementById('l-old-wat').value) || 1);
+      const oRev  = Math.max(0, parseFloat(document.getElementById('l-old-rev').value) || 0);
+
+      const nCost = Math.max(0, parseFloat(document.getElementById('l-new-cost').value) || 0);
+      const nLab  = Math.max(0, parseFloat(document.getElementById('l-new-lab').value) || 0);
+      const nWat  = Math.max(1, parseFloat(document.getElementById('l-new-wat').value) || 1);
+      const nRev  = Math.max(0, parseFloat(document.getElementById('l-new-rev').value) || 0);
+
+      const oCashNet = oRev - oCost;
+      const nCashNet = nRev - nCost;
+      const deltaCash = nCashNet - oCashNet;
+
+      const oFullNet = oCashNet - (oLab * wage);
+      const nFullNet = nCashNet - (nLab * wage);
+      const deltaFull = nFullNet - oFullNet;
+
+      const oRoi = oCost > 0 ? `₹${(oCashNet / oCost).toFixed(2)}` : '∞ (₹0)';
+      const nRoi = nCost > 0 ? `₹${(nCashNet / nCost).toFixed(2)}` : '∞ (₹0)';
+      const oDrop = oCashNet / oWat;
+      const nDrop = nCashNet / nWat;
+
+      let verdict, vBorder;
+      if (deltaFull > 0) {
+        verdict = `TRUE WIN (After Labour): MŪLA 25% Plot beats old method by +${fmtINR(deltaFull)}/acre even after valuing every labour day at ₹${wage} — ready to scale!`;
+        vBorder = 'border-[var(--success)]';
+      } else if (deltaCash > 0 && deltaFull <= 0) {
+        verdict = `LABOUR WARNING: Cash profit rose +${fmtINR(deltaCash)}/acre, but extra labour days erased it (${fmtINR(deltaFull)} true net). Cut drudgery (rent CHC / cono-weeder) before scaling!`;
+        vBorder = 'border-[var(--warning)]';
+      } else {
+        verdict = `Old plot led by ${fmtINR(-deltaFull)}/acre (after labour) — inspect which leak (pH, weed timing, or market price) held the trial back before scaling.`;
+        vBorder = 'border-[var(--error)]';
+      }
+
+      document.getElementById('ledger-out').innerHTML = `
+        <div class="text-xs font-bold uppercase tracking-wider text-[var(--primary)]">Your Proof Scorecard (Per Acre · A2 &amp; A2+FL)</div>
+        <div class="grid grid-cols-2 gap-2.5 text-xs">
+          <div class="p-3 rounded-lg bg-[var(--card)] border border-[var(--card-border)]">
+            <div class="text-[var(--muted-foreground)]">True Profit After Labour</div>
+            <div class="text-base font-bold font-mono ${deltaFull >= 0 ? 'text-[var(--success)]' : 'text-[var(--error)]'} mt-0.5">${fmtINR(nFullNet)}</div>
+            <div class="text-[var(--muted-foreground)]">Old: ${fmtINR(oFullNet)} (${deltaFull >= 0 ? '+' : ''}${fmtINR(deltaFull)})</div>
+          </div>
+          <div class="p-3 rounded-lg bg-[var(--card)] border border-[var(--card-border)]">
+            <div class="text-[var(--muted-foreground)]">Cash Profit (Before Family Wage)</div>
+            <div class="text-base font-bold font-mono text-[var(--chart-1)] mt-0.5">${fmtINR(nCashNet)}</div>
+            <div class="text-[var(--muted-foreground)]">Old: ${fmtINR(oCashNet)} (${deltaCash >= 0 ? '+' : ''}${fmtINR(deltaCash)})</div>
+          </div>
+          <div class="p-3 rounded-lg bg-[var(--card)] border border-[var(--card-border)]">
+            <div class="text-[var(--muted-foreground)]">Cash Return per ₹1 Spent</div>
+            <div class="text-base font-bold font-mono text-[var(--chart-2)] mt-0.5">${nRoi}</div>
+            <div class="text-[var(--muted-foreground)]">Old: ${oRoi} / ₹1</div>
+          </div>
+          <div class="p-3 rounded-lg bg-[var(--card)] border border-[var(--card-border)]">
+            <div class="text-[var(--muted-foreground)]">Cash Profit / Pump-Hour</div>
+            <div class="text-base font-bold font-mono text-[var(--chart-3)] mt-0.5">${fmtINR(nDrop)}</div>
+            <div class="text-[var(--muted-foreground)]">Old: ${fmtINR(oDrop)} / hr</div>
+          </div>
+        </div>
+        <div class="p-3 rounded-lg bg-[var(--card)] border ${vBorder} text-xs font-semibold text-[var(--foreground)]">
+          ${verdict}
+        </div>
+      `;
+    }
+
+    ['l-wage','l-old-cost','l-old-lab','l-old-wat','l-old-rev','l-new-cost','l-new-lab','l-new-wat','l-new-rev'].forEach(id => {
+      document.getElementById(id).addEventListener('input', renderLedger);
+    });
+    document.getElementById('ledger-preset').addEventListener('click', () => {
+      document.getElementById('l-wage').value = 350;
+      document.getElementById('l-old-cost').value = 18000;
+      document.getElementById('l-old-lab').value = 22;
+      document.getElementById('l-old-wat').value = 35;
+      document.getElementById('l-old-rev').value = 36000;
+      document.getElementById('l-new-cost').value = 13200;
+      document.getElementById('l-new-lab').value = 20;
+      document.getElementById('l-new-wat').value = 24;
+      document.getElementById('l-new-rev').value = 44500;
+      renderLedger();
+    });
+
+    // =========================================================================
+    // VIEW 3: GLOBAL-TO-INDIA PROOF ATLAS (30 BALANCED PROOFS)
+    // =========================================================================
+    let atlasFilter = 'all';
+
+    function renderAtlas() {
+      const fOpts = [
+        { k: 'all', l: `All ${ATLAS.length} Proofs` },
+        ...ROOTS.map(r => {
+          const cnt = ATLAS.filter(a => a.root === r.num).length;
+          return { k: String(r.num), l: `Root ${r.num}: ${r.short} (${cnt})` };
+        })
+      ];
+      const fEl = document.getElementById('atlas-filters');
+      fEl.innerHTML = fOpts.map(o => `
+        <button data-af="${o.k}" class="px-3 py-1.5 rounded-full border text-xs font-medium cursor-pointer transition ${atlasFilter === o.k ? 'chip-on' : 'chip-off'}">${o.l}</button>
+      `).join('');
+      fEl.querySelectorAll('button').forEach(b => {
+        b.addEventListener('click', () => { atlasFilter = b.dataset.af; renderAtlas(); });
+      });
+
+      const q = (document.getElementById('atlas-search').value || '').toLowerCase().trim();
+      const items = ATLAS.filter(a => {
+        const mRoot = atlasFilter === 'all' || String(a.root) === atlasFilter;
+        const text = `${a.title} ${a.place} ${a.continent} ${a.pioneer} ${a.story} ${a.india} ${a.science}`.toLowerCase();
+        return mRoot && (!q || text.includes(q));
+      });
+
+      const grid = document.getElementById('atlas-grid');
+      if (!items.length) {
+        grid.innerHTML = `<div class="col-span-full p-8 text-center bg-[var(--card)] border border-[var(--border)] rounded-2xl text-sm text-[var(--muted-foreground)]">No global breakthroughs match that search.</div>`;
+        return;
+      }
+
+      grid.innerHTML = items.map(a => {
+        const root = ROOTS.find(r => r.num === a.root);
+        return `
+          <article class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 flex flex-col justify-between gap-3.5">
+            <div class="space-y-2.5">
+              <div class="flex flex-wrap items-center justify-between gap-2 text-xs">
+                <span class="px-2.5 py-0.5 rounded-full font-bold" style="background:${root.color}; color:var(--background);">Root ${root.num} · ${root.short}</span>
+                <span class="text-[var(--muted-foreground)] font-medium">${a.place} · ${a.continent}</span>
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-[var(--foreground)]">${a.title}</h3>
+                <div class="text-xs text-[var(--muted-foreground)] mt-0.5">Pioneer: <strong class="text-[var(--foreground)]">${a.pioneer}</strong></div>
+              </div>
+              <p class="text-xs sm:text-sm text-[var(--foreground)] leading-relaxed">${a.story}</p>
+              <div class="p-3 rounded-xl bg-[var(--content)] border border-[var(--card-border)] text-xs space-y-1">
+                <div><strong class="text-[var(--success)]">Verified Result:</strong> <span class="text-[var(--foreground)]">${a.result}</span></div>
+                <div><strong class="text-[var(--chart-2)]">Science Behind It:</strong> <span class="text-[var(--muted-foreground)]">${a.science}</span></div>
+              </div>
+            </div>
+            <div class="pt-3 border-t border-[var(--card-border)] text-xs">
+              <strong class="text-[var(--primary)]">Indian Execution:</strong> <span class="text-[var(--foreground)]">${a.india}</span>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+    document.getElementById('atlas-search').addEventListener('input', renderAtlas);
+
+    // =========================================================================
+    // VIEW 4: SHAREABLE 1-PAGE FARMER CARD + 3 WHATSAPP EXPORTS (SYNCED v3.1)
+    // =========================================================================
+    function renderPosterCard() {
+      document.getElementById('poster-rules').innerHTML = ROOTS.map(r => `
+        <div class="p-4 rounded-xl bg-[var(--content)] border border-[var(--card-border)] space-y-1.5">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-md flex items-center justify-center font-bold text-xs shrink-0" style="background:${r.color}; color:var(--background);">${r.num}</span>
+            <h4 class="text-sm font-bold text-[var(--foreground)]">${r.title}</h4>
+          </div>
+          <p class="text-xs font-medium text-[var(--foreground)] italic">“${r.law}”</p>
+          <div class="text-xs text-[var(--muted-foreground)] pt-1">
+            <strong class="text-[var(--success)]">Start Tomorrow (${r.rungs[0].tag}):</strong> ${r.rungs[0].title}
+          </div>
+          <div class="text-xs text-[var(--muted-foreground)]">
+            <strong class="text-[var(--primary)]">Next Upgrade:</strong> ${r.rungs[1].title}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    const WHATSAPP_EN = `🌱 *MŪLA (मूल): 7 Roots of Profitable, Living Farming*
+_(World & Indian highest-ROI farming habits — start with ₹0 tomorrow)_
+
+*Core Law: Stop Wasting Money → Let Nature Work For You → Keep Your Profit.*
+
+1️⃣ *CATCH WATER:* Check free IMD Meghdoot weather before sowing. Stop flooding paddy (AWD), sow across slopes, or bury ₹50 *Matka* clay pots beside saplings (saves 20–70% water).
+2️⃣ *COVER SOIL:* NEVER burn straw—lay it as mulch. Flush & scrape early weeds before sowing (*Stale Seedbed* cuts weeding 50–70%), solarize May nurseries, or test a mini low-tunnel for early off-season veg.
+3️⃣ *FEED SMART:* Check soil pH (free Soil Health Card). Use ₹100 *Leaf Color Chart* / *Urea Deep Placement (UDP)* in rice-wheat, or *6g bottle-cap dosing* in spaced crops + local microbes & ₹200 flowering foliar Boron/Zinc.
+4️⃣ *TEST, PRIME & ROTATE SEEDS:* 4-day wet-cloth seed test + overnight water soaking (+21% yield at ₹0 — sow within 24h in moist soil!). Never repeat the same crop family back-to-back; add pulse rows & bamboo trellises for monsoon veg.
+5️⃣ *HIRE NATURE:* Scout before spraying. Hang ₹50 *fruit-fly bottle traps* (saves 30–80% fruit/gourds), never spray morning flowers (honeybees lift yields 17–35%), keep 30 bird perches/ha, bund trees & marigold/Napier borders.
+6️⃣ *SAVE HARVEST & DAIRY:* Harvest veg at *dawn* in crates (−30–50% rot). Store dry seed/pulses in 2–4 ₹200 airtight *PICS bags* (off mud floors away from rats!) & veg in brick-sand *ZECC* cooler. For cattle: FREE govt. vaccines + deworming + chaff-cut fodder + 50g/day mineral mix (+₹15.8/day/cow).
+7️⃣ *GROW TOGETHER:* Form a 15-farmer buying, CHC tool-sharing & grading circle; shift to 4% KCC loans & grow into an FPO.
+
+⚠️ *25% RULE:* Never drop chemicals overnight—test on 25% of your land, track Cash + Labour profit, and scale what wins!`;
+
+    const WHATSAPP_HI = `🌱 *मूल (MŪLA): फायदेमंद खेती के 7 मूल नियम*
+_(भारत और दुनिया के सबसे कम खर्च व ज़्यादा मुनाफ़े वाले तरीक़े — कल ₹0 से शुरू करें)_
+
+*असली मंत्र: बर्बादी रोकें → प्रकृति से आधा काम करवाएं → अपनी उपज की पूरी क़ीमत पाएं।*
+
+1️⃣ *पानी बचाएं:* बुवाई से पहले मौसम (Meghdoot) देखें। धान में लगातार पानी न भरें (AWD), ढलान के आड़े बोएं या बाग़ के पौधों के पास ₹50 का *मटका* गाड़ें (20–70% पानी बचेगा)।
+2️⃣ *मिट्टी ढकें:* पराली कभी न जलाएं—खेत पर बिछाएं। बुवाई से पहले खरपतवार उगने देकर एक बार हटाएं (*Stale Seedbed* — 50–70% निराई बचेगी)। नर्सरी में धूप उपचार व अगेती सब्ज़ी के लिए लो-टनल आज़माएं।
+3️⃣ *सही खाद दें:* पहले मिट्टी का pH जांचें (मुफ़्त सॉइल हेल्थ कार्ड)। धान-गेहूँ में ₹100 का *लीफ़ कलर चार्ट* / *UDP गोली*, और दूर वाली फसलों में *6g ढक्कन से जड़ के पास खाद* + जीवामृत व फूल पर ₹200 बोरॉन/ज़िंक स्प्रे।
+4️⃣ *बीज जांचें, भिगोएं व फसल बदलें:* 4 दिन गीले कपड़े में बीज जांचें + रात भर भिगोएं (₹0 में ~21% ज़्यादा उपज — गीली मिट्टी में 24 घंटे में बोएं!)। एक ही कुल की फसल लगातार न बोएं; दाल की लाइन व सब्ज़ियों में बाँस का मचान (Trellis) लगाएं।
+5️⃣ *प्रकृति की मदद लें:* बिना कीट गिने व सुबह फूलों पर स्प्रे न करें (मधुमक्खी उपज 17–35% बढ़ाती है)। फल/सब्ज़ी में ₹50 के *फल-मक्खी ट्रैप*, 30 पक्षी डंडे/हेक्टेयर, मेड़ के पेड़ व गेंदा/नेपियर बॉर्डर लगाएं।
+6️⃣ *उपज व पशु बचाएं:* सब्ज़ी-फल *सुबह* तोड़ें व क्रेट में रखें (30–50% कम सड़न)। बीज/दाल 2–4 हवा-बंद *PICS बैग* में लकड़ी के तख़्त पर रखें (चूहों से बचाकर) व सब्ज़ी के लिए ईंट-रेत *ZECC कूलर*। पशुओं को मुफ़्त सरकारी टीका + कृमिनाशक + कुट्टी चारा + 50g रोज़ मिनरल मिक्स दें।
+7️⃣ *मिलकर आगे बढ़ें:* 15–20 किसानों का समूह बनाएं—थोक ख़रीद, मशीन किराया (CHC), ग्रेडिंग, 4% KCC व FPO से जुड़ें।
+
+⚠️ *25% नियम:* अचानक खाद बंद न करें—पहले 25% खेत पर आज़माएं, खर्च और मेहनत दोनों जोड़कर शुद्ध मुनाफ़ा नापें, फिर बढ़ाएं!`;
+
+    const WHATSAPP_HINGLISH = `🌱 *MŪLA (मूल): Kheti & Dairy Mein Munafa Badhane Ke 7 Golden Rules*
+_(India aur duniya ke sabse high-ROI tareeke — kal ₹0 se shuru karein)_
+
+*Asli Mantra: Wastage Roko → Nature Se Aadha Kaam Karwao → Fasal Ka Poora Daam Pao.*
+
+1️⃣ *PAANI BACHAO:* Buwai se pehle IMD Meghdoot weather dekhein. Dhaan mein lagatar paani mat bharo (AWD), dhalan ke aade bowo ya paudhon ke paas ₹50 ka *Matka* gaado (20–70% paani bachega).
+2️⃣ *MITTI DHAKO:* Parali kabhi mat jalao—khet par bichao. Buwai se pehle pehli ghaas ugaakar halka saaf karo (*Stale Seedbed* = 50–70% kam nirai). Nursery solarize karo & early sabzi ke liye mini low-tunnel try karo.
+3️⃣ *SMART KHAAD:* Pehle Soil Health Card se pH theek karo. Dhaan-gehun mein ₹100 ka *Leaf Color Chart* / *UDP*, aur door wali fasal mein *6g bottle-cap* se jad ke paas khaad + compost/Jeevamrut & flowering par ₹200 Boron/Zinc spray.
+4️⃣ *BEEJ TEST, PRIMING & ROTATION:* 4-din geele kapde mein beej test + raat bhar bhigo do (₹0 mein ~21% zyada upaj — nami wali mitti mein 24h ke andar bowo!). Same family ki fasal lagatar mat bowo; daal ki line & monsoon sabzi mein baans ka trellis lagao.
+5️⃣ *NATURE KI MADAD:* Bina keet gine aur subah phoolon par spray mat karo (bees upaj 17–35% badhati hain). ₹50 ke *fruit-fly bottle trap* (30–80% bachat), 30 bird perches/ha, med ke ped & genda/Napier border lagao.
+6️⃣ *HARVEST & DAIRY:* Sabzi *subah* todo & crate mein rakho (−30–50% sadan). Beej/daal 2–4 airtight *PICS bag* mein lakdi ke takht par rakho (chuhon se bachaakar) & sabzi ke liye *ZECC cooler*. Pashuon ko FREE govt. vaccine + deworming + kutti chara + 50g/din mineral mix (+₹15.8/din profit).
+7️⃣ *MILKAR BADHO:* 15–20 kisanon ka group banao—bulk buying, CHC tool sharing, grading, 4% KCC loan aur FPO se judo.
+
+⚠️ *25% RULE:* Achanak chemical band mat karo—pehle 25% khet par try karo, Cash + Labour dono jodhkar asli profit naapo, phir badhao!`;
+
+    function copyText(txt, label) {
+      const toast = document.getElementById('copy-toast');
+      const show = (msg) => {
+        toast.textContent = msg;
+        toast.classList.remove('hidden');
+        setTimeout(() => toast.classList.add('hidden'), 3500);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(txt).then(() => show(label + ' copied — ready to paste into WhatsApp!')).catch(() => fallbackCopy(txt, label, show));
+      } else {
+        fallbackCopy(txt, label, show);
+      }
+    }
+    function fallbackCopy(txt, label, show) {
+      const ta = document.createElement('textarea');
+      ta.value = txt;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); show(label + ' copied — ready to share!'); } catch(e) { show('Select and copy text manually.'); }
+      document.body.removeChild(ta);
+    }
+
+    document.getElementById('btn-copy-en').addEventListener('click', () => copyText(WHATSAPP_EN, 'English WhatsApp summary'));
+    document.getElementById('btn-copy-hi').addEventListener('click', () => copyText(WHATSAPP_HI, 'Hindi (हिन्दी) WhatsApp summary'));
+    document.getElementById('btn-copy-hg').addEventListener('click', () => copyText(WHATSAPP_HINGLISH, 'Hinglish WhatsApp summary'));
+    document.getElementById('btn-print').addEventListener('click', () => window.print());
+
+    // Init synced state and all views
+    setEcology(currentEco);
+    renderRootWheel();
+    renderAtlas();
+    renderPosterCard();
+    renderLedger();
+  </script>
+</body>
+</html>
